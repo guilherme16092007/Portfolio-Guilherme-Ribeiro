@@ -1,880 +1,281 @@
 <!DOCTYPE html>
-<html lang="pt-br" class="scroll-smooth dark">
-
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio | Guilherme Henrique Campos Ribeiro</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            dark: '#030712',
-                            card: '#0b0f19',
-                            accent: '#38bdf8',
-                            border: '#1e293b'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Esconde a barra de rolagem padrão do carrossel para manter o design limpo */
-        .scrollbar-hide::-webkit-scrollbar {
-            display: none;
-        }
-
-        .scrollbar-hide {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-    </style>
+    <meta name="description" content="Portfólio de Guilherme Henrique Campos Ribeiro, desenvolvedor de software multiplataforma.">
+    <title>GHCR — Guilherme Henrique</title>
+    <script>document.documentElement.classList.add("js");</script>
+    <link rel="stylesheet" href="tailwind.generated.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-
-<body
-    class="bg-slate-50 text-slate-700 dark:bg-brand-dark dark:text-slate-300 font-sans antialiased selection:bg-brand-accent selection:text-black transition-colors duration-300">
-
-    <nav
-        class="sticky top-0 z-50 bg-white/80 dark:bg-brand-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-brand-border">
-        <div class="container mx-auto px-6 h-20 flex justify-between items-center">
-            <a href="#" class="flex items-center gap-3 group">
-                <img src="img/brl_correto-removebg-preview (1) (1).png"
-                    class="w-20 h-20 object-contain filter dark:invert opacity-80 group-hover:opacity-100 transition duration-300"
-                    alt="Logo">
-                <span
-                    class="text-slate-900 dark:text-white font-bold tracking-wider text-lg group-hover:text-brand-accent transition duration-300">GHCR</span>
-            </a>
-
-            <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
-                <a href="#sobre" data-i18n="nav_about"
-                    class="hover:text-brand-accent text-slate-600 dark:text-slate-300 transition duration-300">Sobre</a>
-                <a href="#projetos" data-i18n="nav_projects"
-                    class="hover:text-brand-accent text-slate-600 dark:text-slate-300 transition duration-300">Projetos</a>
-                <a href="#competencias" data-i18n="nav_skills"
-                    class="hover:text-brand-accent text-slate-600 dark:text-slate-300 transition duration-300">Competências</a>
-                <a href="#trajetoria" data-i18n="nav_trajectory"
-                    class="hover:text-brand-accent text-slate-600 dark:text-slate-300 transition duration-300">Trajetória</a>
-                <a href="#contato" data-i18n="nav_contact"
-                    class="hover:text-brand-accent text-slate-600 dark:text-slate-300 transition duration-300">Contato</a>
-
-                <!-- Seleção de Idioma -->
-                <div class="relative inline-block text-left">
-                    <select id="lang-selector"
-                        class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded px-2 py-1 text-xs font-semibold focus:outline-none cursor-pointer border border-slate-300 dark:border-slate-700">
-                        <option value="pt">PT</option>
-                        <option value="en">EN</option>
-                        <option value="es">ES</option>
-                    </select>
-                </div>
-
-                <!-- Botão Alternador de Tema -->
-                <button id="theme-toggle"
-                    class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-brand-accent transition">
-
-                    <!-- Ícone de Lua -->
-                    <svg id="theme-toggle-dark-icon" class="w-4 h-4 hidden" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-                    </svg>
-
-                    <!-- Ícone de Sol -->
-                    <svg id="theme-toggle-light-icon" class="w-4 h-4 hidden" fill="currentColor" viewBox="0 0 20 20">
-                        <path
-                            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95a1 1 0 111.414-1.414l.707.707a1 1 0 01-1.414 1.414l-.707-.707zm1.414-9.9a1 1 0 010 1.414l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 17.95a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414l-.707.707zm1.414-14.14a1 1 0 11-1.414 1.414L4.34 4.5a1 1 0 011.414-1.414l.707.707zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z">
-                        </path>
-                    </svg>
-                </button>
-
-                <!-- Curriculo -->
-                <a href="img\Cópia de CV DO COTEC FULANINHO.docx (1).pdf" target="_blank" data-i18n="nav_resume"
-                    class="bg-brand-accent hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-brand-dark text-brand-dark px-5 py-2 rounded-lg font-semibold shadow-lg shadow-brand-accent/10 transition duration-300">Currículo
-                    PDF</a>
-            </div>
-
-            <!-- Botão Menu Mobile -->
-            <div class="flex items-center gap-4 md:hidden">
-                <select id="lang-selector-mobile"
-                    class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded px-2 py-1 text-xs focus:outline-none">
-                    <option value="pt">PT</option>
-                    <option value="en">EN</option>
-                    <option value="es">ES</option>
-                </select>
-                <button id="theme-toggle-mobile"
-                    class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
-                    <svg id="theme-mobile-icon" class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-                    </svg>
-                </button>
-                <button id="menu-btn"
-                    class="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
+<body class="bg-poster text-underground antialiased transition-colors duration-300 dark:bg-underground dark:text-poster">
+    <div class="grain" aria-hidden="true"></div>
+    <header class="topbar sticky top-0 z-50 transition-colors duration-300">
+        <a class="brand" href="#inicio" aria-label="Voltar ao inicio">
+            <img src="img/brl_correto-removebg-preview (1) (1).png" alt="Logo GHCR">
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+            <span></span><span></span>
+            <b data-i18n="menu">Menu</b>
+        </button>
+        <nav id="main-nav" class="main-nav" aria-label="Navegação principal">
+            <a href="#sobre" data-i18n="nav_about">Sobre</a>
+            <a href="#projetos" data-i18n="nav_projects">Projetos</a>
+            <a href="#competencias" data-i18n="nav_skills">Competências</a>
+            <a href="#trajetoria" data-i18n="nav_path">Trajetória</a>
+            <a href="#contato" data-i18n="nav_contact">Contato</a>
+            <a class="resume-mobile" href="img/curriculo-guilherme-ribeiro.pdf" target="_blank" rel="noopener" download="curriculo-guilherme-ribeiro.pdf" data-i18n="resume">Currículo ↗</a>
+            <select id="language-select-mobile" class="mobile-language" aria-label="Idioma">
+                <option value="pt">PT</option>
+                <option value="en">EN</option>
+                <option value="es">ES</option>
+            </select>
+            <button id="theme-toggle-mobile" class="theme-toggle theme-toggle-mobile" type="button" aria-label="Alternar tema" aria-pressed="false">
+                <span class="theme-icon" aria-hidden="true">☀</span>
+                <span class="theme-label">Tema</span>
+            </button>
+        </nav>
+        <div class="nav-actions">
+            <select id="language-select" aria-label="Idioma">
+                <option value="pt">PT</option>
+                <option value="en">EN</option>
+                <option value="es">ES</option>
+            </select>
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Alternar tema" aria-pressed="false">
+                <span class="theme-icon" aria-hidden="true">☀</span>
+                <span class="theme-label">Tema</span>
+            </button>
+            <a class="resume-link" href="img/curriculo-guilherme-ribeiro.pdf" target="_blank" rel="noopener" download="curriculo-guilherme-ribeiro.pdf" data-i18n="resume">Currículo ↗</a>
         </div>
+    </header>
 
-        <!-- Menu Mobile Dropdown -->
-        <div id="mobile-menu"
-            class="hidden md:hidden bg-white dark:bg-brand-card border-b border-slate-200 dark:border-brand-border px-6 py-4 space-y-3 text-sm">
-            <a href="#sobre" data-i18n="nav_about"
-                class="block text-slate-600 dark:text-slate-300 hover:text-brand-accent py-2 transition">Sobre</a>
-            <a href="#projetos" data-i18n="nav_projects"
-                class="block text-slate-600 dark:text-slate-300 hover:text-brand-accent py-2 transition">Projetos</a>
-            <a href="#competencias" data-i18n="nav_skills"
-                class="block text-slate-600 dark:text-slate-300 hover:text-brand-accent py-2 transition">Competências</a>
-            <a href="#trajetoria" data-i18n="nav_trajectory"
-                class="block text-slate-600 dark:text-slate-300 hover:text-brand-accent py-2 transition">Trajetória e
-                Certificados</a>
-            <a href="#contato" data-i18n="nav_contact"
-                class="block text-slate-600 dark:text-slate-300 hover:text-brand-accent py-2 transition">Contato</a>
-            <a href="img\Cópia de CV DO COTEC FULANINHO.docx (1).pdf" target="_blank" data-i18n="nav_resume"
-                class="block text-center bg-brand-accent text-brand-dark px-4 py-2 rounded-md font-semibold transition">Currículo
-                PDF</a>
-        </div>
-    </nav>
-
-    <!-- SEÇÃO SOBRE -->
-    <section id="sobre" class="container mx-auto px-6 py-16 md:py-28 max-w-5xl">
-        <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16">
-            <div class="w-full md:w-1/3 flex justify-center">
-                <div class="relative group">
-                    <div
-                        class="absolute -inset-1 bg-gradient-to-r from-brand-accent to-blue-600 rounded-full blur opacity-20 group-hover:opacity-40 transition duration-500">
-                    </div>
-                    <img class="relative w-64 h-64 md:w-72 md:h-72 rounded-full object-cover border-2 border-slate-200 dark:border-brand-border group-hover:border-brand-accent/50 transition duration-500 shadow-2xl"
-                        src="img/eu para site (1) (1).jpg" alt="Guilherme Henrique">
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero-code" aria-hidden="true">21:09 // GHCR // FATEC</div>
+            <div class="hero-copy reveal">
+                <p class="eyebrow" data-i18n="hero_role">Desenvolvedor de Software Multiplataforma</p>
+                <h1>GUILHERME<br><span>HENRIQUE</span></h1>
+                <p class="hero-surname">CAMPOS RIBEIRO</p>
+                <p class="hero-statement" data-i18n="hero_statement">Lógica, arquitetura e interfaces transformadas em soluções práticas.</p>
+                <div class="hero-actions">
+                    <a class="button button-yellow" href="#projetos" data-i18n="view_work">Ver projetos <b>↘</b></a>
+                    <a class="text-link" href="#contato" data-i18n="contact_me">Chamar para conversar ↗</a>
                 </div>
             </div>
-            <div class="w-full md:w-2/3 space-y-6">
-                <div>
-                    <span data-i18n="hero_role"
-                        class="text-brand-accent text-sm font-semibold tracking-widest uppercase">Desenvolvedor Software
-                        Multiplataforma</span>
-                    <h2 class="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mt-1 tracking-tight">
-                        Guilherme Henrique <br><span
-                            class="text-slate-400 dark:text-slate-500 text-2xl md:text-3xl font-bold">Campos
-                            Ribeiro</span></h2>
+            <div class="hero-portrait reveal">
+                <div class="portrait-frame">
+                    <img src="img/eu para site (1) (1).jpg" alt="Guilherme Henrique">
                 </div>
-                <div
-                    class="space-y-4 text-slate-600 dark:text-slate-400 text-justify leading-relaxed text-sm md:text-base">
-                    <p data-i18n="about_p1">Sou um desenvolvedor em formação, focado em transformar ideias complexas em
-                        soluções de software práticas, organizadas e altamente funcionais. Com uma base técnica sólida
-                        originada na <strong>Eletrônica Industrial (CTIG/UNESP)</strong>, possuo uma visão diferenciada
-                        que conecta a lógica abstrata do software à realidade física do hardware.</p>
-                    <p data-i18n="about_p2">No ecossistema de desenvolvimento, possuo maior afinidade com o
-                        <strong>Back-end</strong>. É na arquitetura por trás da interface onde aplico conceitos de
-                        lógica estruturada, manipulação eficiente de dados e construção de sistemas robustos e
-                        escaláveis.
-                    </p>
-                    <p data-i18n="about_p3">Atualmente, expando minhas competências na <strong>FATEC</strong>,
-                        desenvolvendo projetos baseados em colaboração ágil (Git/GitHub) e metodologias que priorizam a
-                        produtividade e a entrega de valor real.</p>
-                </div>
+                <div class="yellow-stamp">FATEC<br>2026</div>
+                <p class="portrait-caption">SOFTWARE × HARDWARE × CRIATIVIDADE</p>
+            </div>
+            <div class="hero-index" aria-hidden="true">
+                <span>01</span><span>APRESENTAÇÃO</span><span>01 / 06</span>
+            </div>
+        </section>
+
+        <div class="city-ticker" aria-label="Desenvolvimento, lógica, sistemas, criatividade">
+            <div class="ticker-track" aria-hidden="true">
+                <span>DESENVOLVIMENTO</span><b>✳</b><span>LÓGICA</span><b>✳</b><span>SISTEMAS</span><b>✳</b><span>CRIATIVIDADE</span><b>✳</b>
+                <span>DESENVOLVIMENTO</span><b>✳</b><span>LÓGICA</span><b>✳</b><span>SISTEMAS</span><b>✳</b><span>CRIATIVIDADE</span><b>✳</b>
             </div>
         </div>
-    </section>
 
-    <!-- SEÇÃO PROJETOS (CARROSSEL INTERATIVO) -->
-    <section id="projetos"
-        class="bg-slate-100 dark:bg-gradient-to-b dark:from-brand-dark dark:to-black py-20 border-t border-slate-200 dark:border-brand-border relative">
-        <div class="container mx-auto px-6 max-w-6xl">
-            <div class="text-center mb-12">
-                <h2 data-i18n="projects_title" class="text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
-                    Projetos em Destaque</h2>
-                <p data-i18n="projects_subtitle" class="text-slate-500 text-sm mt-2">Aplicações acadêmicas e técnicas
-                    desenvolvidas com foco em arquitetura e impacto.</p>
-            </div>
-
-            <!-- Controles e Linha do Slider -->
-            <div class="relative group/carousel">
-                <!-- Botão Voltar -->
-                <button id="prev-project"
-                    class="absolute -left-4 md:-left-12 top-1/2 -translate-y-1/2 z-10 bg-white dark:bg-brand-card text-slate-700 dark:text-white p-3 rounded-full border border-slate-200 dark:border-brand-border shadow-xl opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 hover:text-brand-accent">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
-                        </path>
-                    </svg>
-                </button>
-
-                <!-- Container de Track dos Cards -->
-                <div id="carousel-track"
-                    class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide py-4 px-2">
-
-                    <!-- Card 1 -->
-                    <div
-                        class="w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] flex-shrink-0 snap-start bg-white dark:bg-brand-card border border-slate-200 dark:border-brand-border rounded-xl p-6 flex flex-col justify-between hover:border-brand-accent/30 hover:-translate-y-1 transition duration-300 shadow-lg dark:shadow-xl">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <span data-i18n="proj1_tag"
-                                    class="text-xs font-semibold bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-brand-accent px-2.5 py-1 rounded-md border border-blue-200 dark:border-blue-900">Acadêmico
-                                    (FATEC)</span>
-                                <a href="https://github.com/APILumina/API1_DSM_Lumina" target="_blank"
-                                    class="text-slate-400 hover:text-slate-900 dark:hover:text-white transition"><svg
-                                        class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.061.069-.061 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-                                    </svg></a>
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">API dos Deputados</h3>
-                            <p data-i18n="proj1_desc"
-                                class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">Plataforma
-                                desenvolvida para centralizar e democratizar o acesso a dados públicos sobre a atuação
-                                de deputados, auxiliando o voto consciente.</p>
-                            <div class="border-t border-slate-200 dark:border-brand-border/60 pt-3 mt-2">
-                                <strong data-i18n="proj_role_title"
-                                    class="text-xs text-slate-700 dark:text-slate-300 block mb-1 uppercase tracking-wider">Minha
-                                    Atuação:</strong>
-                                <p data-i18n="proj1_role" class="text-xs text-slate-500 dark:text-slate-400">Responsável
-                                    pela camada de lógica back-end, estruturação e limpeza de dados utilizando
-                                    bibliotecas de manipulação de dados e arquitetura modular de rotas.</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-wrap gap-2 mt-6">
-                            <span
-                                class="text-[11px] bg-slate-200 dark:bg-slate-900 px-2 py-0.5 rounded text-slate-600 dark:text-slate-400">Python</span>
-                            <span
-                                class="text-[11px] bg-slate-200 dark:bg-slate-900 px-2 py-0.5 rounded text-slate-600 dark:text-slate-400">Flask</span>
-                            <span
-                                class="text-[11px] bg-slate-200 dark:bg-slate-900 px-2 py-0.5 rounded text-slate-600 dark:text-slate-400">Pandas</span>
-                        </div>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div
-                        class="w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] flex-shrink-0 snap-start bg-white dark:bg-brand-card border border-slate-200 dark:border-brand-border rounded-xl p-6 flex flex-col justify-between hover:border-brand-accent/30 hover:-translate-y-1 transition duration-300 shadow-lg dark:shadow-xl">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <span data-i18n="proj2_tag"
-                                    class="text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 px-2.5 py-1 rounded-md border border-emerald-200 dark:border-emerald-900">Web
-                                    Interface</span>
-                                <a href="https://1dsm20261-3.vercel.app/" target="_blank"
-                                    class="text-slate-400 hover:text-slate-900 dark:hover:text-white transition"><svg
-                                        class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
-                                        </path>
-                                    </svg></a>
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Universidade Fictícia</h3>
-                            <p data-i18n="proj2_desc"
-                                class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">Desenvolvimento
-                                de um portal educacional completo simulando os serviços, fluxos informativos e a
-                                identidade visual de uma instituição de ensino.</p>
-                            <div class="border-t border-slate-200 dark:border-brand-border/60 pt-3 mt-2">
-                                <strong data-i18n="proj_role_title"
-                                    class="text-xs text-slate-700 dark:text-slate-300 block mb-1 uppercase tracking-wider">Minha
-                                    Atuação:</strong>
-                                <p data-i18n="proj2_role" class="text-xs text-slate-500 dark:text-slate-400">Concepção
-                                    da arquitetura semântica das páginas, estilização responsiva cross-device,
-                                    organização de layouts flexíveis e otimização de navegação rápida.</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-wrap gap-2 mt-6">
-                            <span
-                                class="text-[11px] bg-slate-200 dark:bg-slate-900 px-2 py-0.5 rounded text-slate-600 dark:text-slate-400">HTML5</span>
-                            <span
-                                class="text-[11px] bg-slate-200 dark:bg-slate-900 px-2 py-0.5 rounded text-slate-600 dark:text-slate-400">CSS3</span>
-                            <span
-                                class="text-[11px] bg-slate-200 dark:bg-slate-900 px-2 py-0.5 rounded text-slate-600 dark:text-slate-400">Design
-                                Responsivo</span>
-                        </div>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div
-                        class="w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] flex-shrink-0 snap-start bg-white dark:bg-brand-card border border-slate-200 dark:border-brand-border rounded-xl p-6 flex flex-col justify-between hover:border-brand-accent/30 hover:-translate-y-1 transition duration-300 shadow-lg dark:shadow-xl">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <span data-i18n="proj3_tag"
-                                    class="text-xs font-semibold bg-amber-50 dark:bg-amber-950/80 text-amber-600 dark:text-amber-400 px-2.5 py-1 rounded-md border border-amber-200 dark:border-amber-900">Industrial
-                                    / Hardware</span>
-                                <a href="https://www.instagram.com/flex_source/" target="_blank"
-                                    class="text-slate-400 hover:text-slate-900 dark:hover:text-white transition"><svg
-                                        class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
-                                        </path>
-                                    </svg></a>
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Projeto Eletrônica
-                                Industrial</h3>
-                            <p data-i18n="proj3_desc"
-                                class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">Desenvolvimento
-                                de systems integrados de controle e monitoramento eletrônico durante a formação técnica
-                                integrada de nível médio.</p>
-                            <div class="border-t border-slate-200 dark:border-brand-border/60 pt-3 mt-2">
-                                <strong data-i18n="proj_role_title"
-                                    class="text-xs text-slate-700 dark:text-slate-300 block mb-1 uppercase tracking-wider">Minha
-                                    Atuação:</strong>
-                                <p data-i18n="proj3_role" class="text-xs text-slate-500 dark:text-slate-400">Análise,
-                                    modelagem e teste prático de circuitos de potência de controle lógico.
-                                    Desenvolvimento fundamentado na resolução analítica de problemas físicos de
-                                    automação.</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-wrap gap-2 mt-6">
-                            <span
-                                class="text-[11px] bg-slate-200 dark:bg-slate-900 px-2 py-0.5 rounded text-slate-600 dark:text-slate-400">Sistemas
-                                Embarcados</span>
-                            <span
-                                class="text-[11px] bg-slate-200 dark:bg-slate-900 px-2 py-0.5 rounded text-slate-600 dark:text-slate-400">Automação</span>
-                            <span
-                                class="text-[11px] bg-slate-200 dark:bg-slate-900 px-2 py-0.5 rounded text-slate-600 dark:text-slate-400">Lógica
-                                de Circuitos</span>
-                        </div>
-                    </div>
-
-                    <!-- Card 4 -->
-                    <div
-                        class="w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] flex-shrink-0 snap-start bg-white dark:bg-brand-card border border-slate-200 dark:border-brand-border rounded-xl p-6 flex flex-col justify-between hover:border-brand-accent/30 hover:-translate-y-1 transition duration-300 shadow-lg dark:shadow-xl">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <span data-i18n="proj4_tag"
-                                    class="text-xs font-semibold bg-purple-50 dark:bg-purple-950 text-purple-600 dark:text-purple-400 px-2.5 py-1 rounded-md border border-purple-200 dark:border-purple-900">Web
-                                    Development / Cloud</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Site Institucional v2.0
-                            </h3>
-                            <p data-i18n="proj4_desc"
-                                class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">Modernização
-                                completa da plataforma universitária, com foco em persistência de dados e infraestrutura
-                                escalável em ambiente de produção.</p>
-                            <div class="border-t border-slate-200 dark:border-brand-border/60 pt-3 mt-2">
-                                <strong data-i18n="proj_role_title"
-                                    class="text-xs text-slate-700 dark:text-slate-300 block mb-1 uppercase tracking-wider">Minha
-                                    Atuação:</strong>
-                                <p data-i18n="proj4_role" class="text-xs text-slate-500 dark:text-slate-400">Integração
-                                    de banco de dados relacional para gestão dinâmica e implementação de containerização
-                                    com Docker. Deploy e orquestração de ambiente na nuvem AWS, garantindo alta
-                                    disponibilidade e performance.</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-wrap gap-2 mt-6">
-                            <span
-                                class="text-[11px] bg-slate-200 dark:bg-slate-900 px-2 py-0.5 rounded text-slate-600 dark:text-slate-400">Docker</span>
-                            <span
-                                class="text-[11px] bg-slate-200 dark:bg-slate-900 px-2 py-0.5 rounded text-slate-600 dark:text-slate-400">AWS</span>
-                        </div>
-                    </div>
-
-                    <!-- Card 5 (Portfólio) -->
-                    <div
-                        class="w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] flex-shrink-0 snap-start bg-white dark:bg-brand-card border border-slate-200 dark:border-brand-border rounded-xl p-6 flex flex-col justify-between hover:border-brand-accent/30 hover:-translate-y-1 transition duration-300 shadow-lg dark:shadow-xl">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <span data-i18n="proj5_tag"
-                                    class="text-xs font-semibold bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 px-2.5 py-1 rounded-md border border-emerald-200 dark:border-emerald-900">Front-end
-                                    / UI</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Portfólio Web Moderno</h3>
-                            <p data-i18n="proj5_desc"
-                                class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">Portfólio web
-                                dinâmico e totalmente responsivo, construído para apresentar minha trajetória,
-                                competências e projetos com suporte a múltiplos idiomas.</p>
-                            <div class="border-t border-slate-200 dark:border-brand-border/60 pt-3 mt-2">
-                                <strong data-i18n="proj_role_title"
-                                    class="text-xs text-slate-700 dark:text-slate-300 block mb-1 uppercase tracking-wider">Minha
-                                    Atuação:</strong>
-                                <p data-i18n="proj5_role" class="text-xs text-slate-500 dark:text-slate-400">
-                                    Desenvolvimento da interface moderna utilizando Tailwind CSS e JavaScript.
-                                    Implementação de sistema próprio de internacionalização (i18n) e gestão de tema
-                                    (Dark Mode).</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-wrap gap-2 mt-6">
-                            <span
-                                class="text-[11px] bg-slate-200 dark:bg-slate-900 px-2 py-0.5 rounded text-slate-600 dark:text-slate-400">Tailwind
-                                CSS</span>
-                            <span
-                                class="text-[11px] bg-slate-200 dark:bg-slate-900 px-2 py-0.5 rounded text-slate-600 dark:text-slate-400">JavaScript
-                                (i18n)</span>
-                            <span
-                                class="text-[11px] bg-slate-200 dark:bg-slate-900 px-2 py-0.5 rounded text-slate-600 dark:text-slate-400">HTML5</span>
-                        </div>
-                    </div>
-
+        <section id="sobre" class="section about-section px-5 sm:px-8 md:px-12 xl:px-[7vw] max-[390px]:px-4">
+            <header class="section-heading reveal grid grid-cols-1 items-start gap-3 md:grid-cols-[180px_1fr]">
+                <p>01 / SOBRE</p>
+                <h2 data-i18n="about_title">Base técnica.<br>Visão ampliada.</h2>
+            </header>
+            <div class="about-grid grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-16">
+                <blockquote class="manifest reveal" data-i18n="about_quote">
+                    “Não construo apenas interfaces. Construo a lógica que faz elas funcionarem.”
+                </blockquote>
+                <div class="about-copy reveal">
+                    <p data-i18n="about_p1">Sou um desenvolvedor em formação, focado em transformar ideias complexas em soluções de software práticas, organizadas e altamente funcionais. Minha formação em Eletrônica Industrial no CTIG/UNESP me deu uma visão que conecta software e hardware.</p>
+                    <p data-i18n="about_p2">Possuo maior afinidade com back-end: lógica estruturada, manipulação eficiente de dados e sistemas robustos e escaláveis. Atualmente, expando minhas competências na FATEC por meio de projetos colaborativos com Git/GitHub e metodologias ágeis.</p>
                 </div>
-
-                <!-- Botão Avançar -->
-                <button id="next-project"
-                    class="absolute -right-4 md:-right-12 top-1/2 -translate-y-1/2 z-10 bg-white dark:bg-brand-card text-slate-700 dark:text-white p-3 rounded-full border border-slate-200 dark:border-brand-border shadow-xl opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 hover:text-brand-accent">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </button>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- SEÇÃO COMPETÊNCIAS -->
-    <section id="competencias" class="container mx-auto px-6 py-20 max-w-4xl">
-        <div class="text-center mb-12">
-            <h2 data-i18n="skills_title" class="text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
-                Competências Técnicas e Interpessoais</h2>
-            <p data-i18n="skills_subtitle" class="text-slate-500 text-sm mt-2">Utilize as abas para alternar entre
-                competências técnicas e metodológicas.</p>
-        </div>
+        <section id="projetos" class="section projects-section px-5 sm:px-8 md:px-12 xl:px-[7vw] max-[390px]:px-4">
+            <header class="section-heading heading-light reveal grid grid-cols-1 items-start gap-3 md:grid-cols-[180px_1fr]">
+                <p>02 / PROJETOS</p>
+                <h2 data-i18n="projects_title">Seleção de<br>trabalhos.</h2>
+            </header>
+            <div class="project-filters reveal flex flex-wrap justify-start gap-2 md:justify-end" role="group" aria-label="Filtrar projetos">
+                <button class="filter active" type="button" data-filter="all" aria-pressed="true">Todos</button>
+                <button class="filter" type="button" data-filter="backend" aria-pressed="false">Backend</button>
+                <button class="filter" type="button" data-filter="web" aria-pressed="false">Web</button>
+                <button class="filter" type="button" data-filter="academic" aria-pressed="false">Acadêmico</button>
+                <button class="filter" type="button" data-filter="hardware" aria-pressed="false">Hardware</button>
+            </div>
+            <div class="project-wall grid grid-cols-1 min-[681px]:grid-cols-12 gap-5">
+                <article class="project-card featured reveal" data-category="backend academic">
+                    <div class="project-meta"><span>01</span><span>BACKEND / API</span></div>
+                    <div class="project-mark">GREENCODE<span>®</span></div>
+                    <h3>Greencode</h3>
+                    <p data-i18n="proj6_desc">Plataforma de logística reversa para rastrear equipamentos eletrônicos e sua cadeia de triagem, desmonte e recuperação.</p>
+                    <p class="project-role"><b data-i18n="project_role_label">Atuação</b><span data-i18n="proj6_role">Arquitetura e desenvolvimento do CLI e da API Fastify, com autenticação JWT, Prisma/PostgreSQL, analytics e relatórios assíncronos.</span></p>
+                    <ul class="tech-list"><li>TypeScript</li><li>Node.js</li><li>Fastify</li><li>Prisma</li><li>PostgreSQL</li><li>Docker</li></ul>
+                    <a class="project-link" href="https://github.com/guilherme16092007/AVI3" target="_blank" rel="noopener">Ver repositório ↗</a>
+                </article>
 
-        <div class="flex justify-center border-b border-slate-200 dark:border-brand-border mb-8">
-            <button id="tab-hard"
-                class="px-6 py-3 text-sm font-semibold border-b-2 border-brand-accent text-slate-900 dark:text-white focus:outline-none transition">Hard
-                Skills</button>
-            <button id="tab-soft"
-                class="px-6 py-3 text-sm font-semibold border-b-2 border-transparent text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 focus:outline-none transition">Soft
-                Skills</button>
-        </div>
+                <article class="project-card reveal" data-category="web">
+                    <div class="project-meta"><span>02</span><span>WEB / CLOUD</span></div>
+                    <img class="project-image" src="img/nova-aurora.png" alt="Captura do Portal Acadêmico Nova Aurora">
+                    <h3>Portal Acadêmico Nova Aurora</h3>
+                    <p data-i18n="proj7_desc">Sistema web para inscrições acadêmicas e cadastro de candidatos em diferentes cursos, com persistência em banco de dados.</p>
+                    <p class="project-role"><b data-i18n="project_role_label">Atuação</b><span data-i18n="proj7_role">Desenvolvimento back-end com Flask e MySQL, conteinerização com Docker Compose e implantação em instância AWS EC2.</span></p>
+                    <ul class="tech-list"><li>Python</li><li>Flask</li><li>MySQL</li><li>Docker</li><li>AWS EC2</li></ul>
+                    <a class="project-link" href="https://github.com/guilherme16092007/Integracao-FDB" target="_blank" rel="noopener">Ver repositório ↗</a>
+                </article>
 
-        <div
-            class="bg-white dark:bg-brand-card border border-slate-200 dark:border-brand-border rounded-xl p-8 min-h-[220px] shadow-sm">
-            <div id="content-hard" class="space-y-6">
-                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                    <div
-                        class="p-4 bg-slate-50 dark:bg-brand-dark/50 border border-slate-200 dark:border-brand-border/60 rounded-lg text-center">
-                        <p class="text-slate-900 dark:text-white font-bold text-sm">Python</p>
-                        <p data-i18n="skill_h1" class="text-xs text-slate-500 mt-1">Lógica Avançada & Scripts</p>
+                <article class="project-card reveal" data-category="backend academic">
+                    <div class="project-meta"><span>03</span><span>ACADÊMICO / FATEC</span></div>
+                    <div class="project-mark compact">API<span>VOTO</span></div>
+                    <h3>API dos Deputados</h3>
+                    <p data-i18n="proj1_desc">Plataforma para centralizar e democratizar o acesso a dados públicos sobre a atuação de deputados, auxiliando o voto consciente.</p>
+                    <p class="project-role"><b data-i18n="project_role_label">Atuação</b><span data-i18n="proj1_role">Responsável pela lógica back-end, organização e tratamento de dados com Pandas e estrutura modular de rotas Flask.</span></p>
+                    <ul class="tech-list"><li>Python</li><li>Flask</li><li>Pandas</li></ul>
+                    <a class="project-link" href="https://github.com/APILumina/API1_DSM_Lumina" target="_blank" rel="noopener">Ver repositório ↗</a>
+                </article>
+
+                <article class="project-card reveal" data-category="web academic">
+                    <div class="project-meta"><span>04</span><span>WEB INTERFACE</span></div>
+                    <div class="project-poster"><b>EDU</b><span>PORTAL<br>UNIVERSITÁRIO</span></div>
+                    <h3>Universidade Fictícia</h3>
+                    <p data-i18n="proj2_desc">Portal educacional que simula serviços, fluxos informativos e a identidade visual de uma instituição de ensino.</p>
+                    <p class="project-role"><b data-i18n="project_role_label">Atuação</b><span data-i18n="proj2_role">Construção da interface responsiva e das páginas de serviços, informações e identidade visual da instituição.</span></p>
+                    <ul class="tech-list"><li>HTML5</li><li>CSS3</li><li>Design responsivo</li></ul>
+                    <a class="project-link" href="https://1dsm20261-3.vercel.app/" target="_blank" rel="noopener">Ver demonstração ↗</a>
+                </article>
+
+                <article class="project-card reveal" data-category="hardware academic">
+                    <div class="project-meta"><span>05</span><span>INDÚSTRIA / HARDWARE</span></div>
+                    <div class="project-poster industrial"><b>CTRL</b><span>ELETRÔNICA<br>INDUSTRIAL</span></div>
+                    <h3>Projeto Eletrônica Industrial</h3>
+                    <p data-i18n="proj3_desc">Desenvolvimento de sistemas integrados de controle e monitoramento eletrônico durante a formação técnica integrada de nível médio.</p>
+                    <p class="project-role"><b data-i18n="project_role_label">Atuação</b><span data-i18n="proj3_role">Participação no desenvolvimento e integração de sistemas eletrônicos, com foco em controle, monitoramento e aplicação prática de circuitos.</span></p>
+                    <ul class="tech-list"><li>Sistemas embarcados</li><li>Automação</li><li>Circuitos</li></ul>
+                    <a class="project-link" href="https://www.instagram.com/flex_source/" target="_blank" rel="noopener">Ver projeto ↗</a>
+                </article>
+
+                <article class="project-card reveal" data-category="web academic">
+                    <div class="project-meta"><span>06</span><span>WEB DEVELOPMENT / CLOUD</span></div>
+                    <div class="project-poster cloud"><b>v2.0</b><span>SITE<br>INSTITUCIONAL</span></div>
+                    <h3>Site Institucional v2.0</h3>
+                    <p data-i18n="proj4_desc">Modernização da plataforma universitária com foco em persistência de dados e infraestrutura escalável em ambiente de produção.</p>
+                    <p class="project-role"><b data-i18n="project_role_label">Atuação</b><span data-i18n="proj4_role">Modernização da aplicação e apoio à integração com banco de dados, Docker e infraestrutura AWS.</span></p>
+                    <ul class="tech-list"><li>Docker</li><li>AWS</li></ul>
+                    <span class="project-note">Projeto preservado do portfólio anterior</span>
+                </article>
+
+                <article class="project-card reveal" data-category="web">
+                    <div class="project-meta"><span>07</span><span>FRONT-END / UI</span></div>
+                    <div class="project-poster portfolio"><b>GH</b><span>PORTFÓLIO<br>PESSOAL</span></div>
+                    <h3>Portfólio Web Moderno</h3>
+                    <p data-i18n="proj5_desc">Portfólio responsivo para apresentar trajetória, competências e projetos com suporte a vários idiomas.</p>
+                    <p class="project-role"><b data-i18n="project_role_label">Atuação</b><span data-i18n="proj5_role">Criação da interface responsiva, alternância de tema e suporte multilíngue com JavaScript.</span></p>
+                    <ul class="tech-list"><li>HTML5</li><li>CSS</li><li>JavaScript ES6+</li><li>Tailwind CSS</li></ul>
+                    <a class="project-link" href="https://github.com/guilherme16092007/Portfolio-Guilherme-Ribeiro" target="_blank" rel="noopener">Ver repositório ↗</a>
+                </article>
+            </div>
+        </section>
+
+        <section id="competencias" class="section skills-section px-5 sm:px-8 md:px-12 xl:px-[7vw] max-[390px]:px-4">
+            <header class="section-heading reveal grid grid-cols-1 items-start gap-3 md:grid-cols-[180px_1fr]">
+                <p>03 / COMPETÊNCIAS</p>
+                <h2 data-i18n="skills_title">Ferramentas do<br>meu processo.</h2>
+            </header>
+            <div class="skills-grid grid grid-cols-1 lg:grid-cols-[1.35fr_.65fr]">
+                <div class="skill-column reveal">
+                    <p class="skill-kicker">HARD SKILLS</p>
+                    <div class="skill-tags">
+                        <span>Python</span><span>JavaScript</span><span>TypeScript</span><span>HTML5 / CSS3</span>
+                        <span>Node.js</span><span>Flask</span><span>Fastify</span><span>Prisma</span>
+                        <span>PostgreSQL</span><span>MySQL</span><span>Docker</span><span>Pandas</span>
+                        <span>Git / GitHub</span><span>Eletrônica</span><span>Bootstrap</span><span>SBD</span>
                     </div>
-                    <div
-                        class="p-4 bg-slate-50 dark:bg-brand-dark/50 border border-slate-200 dark:border-brand-border/60 rounded-lg text-center">
-                        <p class="text-slate-900 dark:text-white font-bold text-sm">Flask</p>
-                        <p data-i18n="skill_h2" class="text-xs text-slate-500 mt-1">Arquitetura Web API</p>
+                    <div class="skill-focus-grid" aria-label="Áreas de aplicação">
+                        <p><b>Python</b><span data-i18n="skill_h1">Lógica avançada e scripts</span></p>
+                        <p><b>Flask</b><span data-i18n="skill_h2">Arquitetura de APIs web</span></p>
+                        <p><b>Pandas</b><span data-i18n="skill_h3">Análise e tratamento de dados</span></p>
+                        <p><b>HTML / CSS</b><span data-i18n="skill_h4">Interfaces modernas</span></p>
+                        <p><b>Bootstrap / Tailwind</b><span data-i18n="skill_h5">Design responsivo utilitário</span></p>
+                        <p><b>SBD</b><span data-i18n="skill_h6">Estrutura de banco de dados</span></p>
                     </div>
-                    <div
-                        class="p-4 bg-slate-50 dark:bg-brand-dark/50 border border-slate-200 dark:border-brand-border/60 rounded-lg text-center">
-                        <p class="text-slate-900 dark:text-white font-bold text-sm">Pandas</p>
-                        <p data-i18n="skill_h3" class="text-xs text-slate-500 mt-1">Análise de Dados Base</p>
-                    </div>
-                    <div
-                        class="p-4 bg-slate-50 dark:bg-brand-dark/50 border border-slate-200 dark:border-brand-border/60 rounded-lg text-center">
-                        <p class="text-slate-900 dark:text-white font-bold text-sm">HTML5 / CSS3</p>
-                        <p data-i18n="skill_h4" class="text-xs text-slate-500 mt-1">Interfaces Modernas</p>
-                    </div>
-                    <div
-                        class="p-4 bg-slate-50 dark:bg-brand-dark/50 border border-slate-200 dark:border-brand-border/60 rounded-lg text-center">
-                        <p class="text-slate-900 dark:text-white font-bold text-sm">Bootstrap / Tailwind</p>
-                        <p data-i18n="skill_h5" class="text-xs text-slate-500 mt-1">Design Responsivo Utilitário</p>
-                    </div>
-                    <div
-                        class="p-4 bg-slate-50 dark:bg-brand-dark/50 border border-slate-200 dark:border-brand-border/60 rounded-lg text-center">
-                        <p class="text-slate-900 dark:text-white font-bold text-sm">SBD</p>
-                        <p data-i18n="skill_h6" class="text-xs text-slate-500 mt-1">Estrutura de Banco de Dados</p>
+                </div>
+                <div class="skill-column skill-column-dark reveal">
+                    <p class="skill-kicker">SOFT SKILLS</p>
+                    <div class="soft-skills">
+                        <p><b>01</b><span><strong data-i18n="skill_s1">Trabalho em equipe e agilidade</strong><small data-i18n="skill_s1_d">Experiência com Git compartilhado e metodologias ágeis, como Scrum e Kanban.</small></span></p>
+                        <p><b>02</b><span><strong data-i18n="skill_s2">Pensamento analítico e lógico</strong><small data-i18n="skill_s2_d">Facilidade com modelagem de dados e arquitetura para resolver fluxos complexos de back-end.</small></span></p>
+                        <p><b>03</b><span><strong data-i18n="skill_s3">Visão multidisciplinar hardware/software</strong><small data-i18n="skill_s3_d">A formação em eletrônica fortaleceu o diagnóstico de problemas físicos e de código.</small></span></p>
+                        <p><b>04</b><span><strong data-i18n="skill_s4">Aprendizado contínuo</strong><small data-i18n="skill_s4_d">Estudo proativo de linguagens, ferramentas de dados e infraestrutura.</small></span></p>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div id="content-soft" class="hidden space-y-4">
-                <div class="grid md:grid-cols-2 gap-4 text-sm">
-                    <div
-                        class="p-4 bg-slate-50 dark:bg-brand-dark/50 border border-slate-200 dark:border-brand-border/60 rounded-lg">
-                        <strong data-i18n="skill_s1_t" class="text-slate-900 dark:text-white block mb-1">Trabalho em
-                            Equipe e Agilidade</strong>
-                        <p data-i18n="skill_s1_d" class="text-slate-600 dark:text-slate-400 text-xs">Experiência prática
-                            no desenvolvimento de projetos integradores utilizando versionamento compartilhado em Git e
-                            metodologias ágeis (Scrum/Kanban).</p>
-                    </div>
-                    <div
-                        class="p-4 bg-slate-50 dark:bg-brand-dark/50 border border-slate-200 dark:border-brand-border/60 rounded-lg">
-                        <strong data-i18n="skill_s2_t" class="text-slate-900 dark:text-white block mb-1">Pensamento
-                            Analítico e Lógico</strong>
-                        <p data-i18n="skill_s2_d" class="text-slate-600 dark:text-slate-400 text-xs">Facilidade natural
-                            com modelagem lógica de dados e arquitetura estruturada para resolução de problemas de fluxo
-                            complexo no back-end.</p>
-                    </div>
-                    <div
-                        class="p-4 bg-slate-50 dark:bg-brand-dark/50 border border-slate-200 dark:border-brand-border/60 rounded-lg">
-                        <strong data-i18n="skill_s3_t" class="text-slate-900 dark:text-white block mb-1">Abordagem
-                            Multidisciplinar (Hardware/Software)</strong>
-                        <p data-i18n="skill_s3_d" class="text-slate-600 dark:text-slate-400 text-xs">Capacidade
-                            analítica aprimorada devido à bagagem técnica em eletrônica, sabendo diagnosticar a
-                            correlação lógica entre restrições físicas e código.</p>
-                    </div>
-                    <div
-                        class="p-4 bg-slate-50 dark:bg-brand-dark/50 border border-slate-200 dark:border-brand-border/60 rounded-lg">
-                        <strong data-i18n="skill_s4_t" class="text-slate-900 dark:text-white block mb-1">Aprendizado
-                            Contínuo</strong>
-                        <p data-i18n="skill_s4_d" class="text-slate-600 dark:text-slate-400 text-xs">Proatividade no
-                            domínio autônomo de novas linguagens, ferramentas de dados e infraestruturas modernas de
-                            desenvolvimento.</p>
-                    </div>
+        <section id="trajetoria" class="section path-section px-5 sm:px-8 md:px-12 xl:px-[7vw] max-[390px]:px-4">
+            <header class="section-heading reveal grid grid-cols-1 items-start gap-3 md:grid-cols-[180px_1fr]">
+                <p>04 / TRAJETÓRIA</p>
+                <h2 data-i18n="path_title">Do circuito ao código.</h2>
+            </header>
+            <div class="path-layout grid grid-cols-1 gap-8 lg:grid-cols-[1.15fr_.85fr] lg:gap-16">
+                <div class="timeline reveal">
+                    <article>
+                        <time>2026 — PRESENTE</time>
+                        <h3>Desenvolvimento de Software Multiplataforma</h3>
+                        <p>FATEC — Primeiro Semestre</p>
+                    </article>
+                    <article>
+                        <time>EVENTOS ACADÊMICOS</time>
+                        <h3>Participação em palestras técnicas</h3>
+                        <p>FATEC / UNESP — Integração acadêmica em inovação tecnológica, ferramentas de desenvolvimento e metodologias de mercado.</p>
+                    </article>
+                    <article>
+                        <time>FORMAÇÃO TÉCNICA</time>
+                        <h3>Ensino Médio Integrado ao Técnico em Eletrônica Industrial</h3>
+                        <p>CTIG — UNESP</p>
+                    </article>
+                </div>
+                <div class="credentials reveal">
+                    <h3>Certificações & cursos</h3>
+                    <a href="img/certificado-pit.pdf" target="_blank" rel="noopener" download="certificado-pit.pdf">
+                        <span>Participação no evento tecnológico do PIT<small data-i18n="cert_d1">Participação em palestras técnicas e exposição de projetos.</small></span><b>PDF ↗</b>
+                    </a>
+                    <a href="img/Imagem.png" target="_blank" rel="noopener">
+                        <span>Técnico em Eletrônica Industrial<small data-i18n="cert_d2">Ensino médio integrado ao técnico em Eletrônica Industrial.</small></span><b>DOC ↗</b>
+                    </a>
+                    <a href="img/Imagem (2).png" target="_blank" rel="noopener">
+                        <span>Estágio em Eletrônica Industrial<small data-i18n="cert_d3">Atuação com componentes destinados a kits educacionais.</small></span><b>DOC ↗</b>
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- SEÇÃO TRAJETÓRIA -->
-    <section id="trajetoria"
-        class="bg-slate-100 dark:bg-gradient-to-b dark:from-black dark:to-brand-dark py-20 border-t border-slate-200 dark:border-brand-border">
-        <div class="container mx-auto px-6 max-w-5xl grid md:grid-cols-2 gap-16">
-
-            <div>
-                <h3
-                    class="text-2xl font-bold text-slate-900 dark:text-white mb-8 tracking-tight flex items-center gap-2">
-                    <span data-i18n="traj_title">Trajetória & Eventos</span>
-                </h3>
-                <div class="border-l-2 border-slate-200 dark:border-brand-border pl-6 space-y-10 relative">
-
-                    <div class="relative">
-                        <div
-                            class="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-brand-accent shadow-[0_0_8px_#38bdf8]">
-                        </div>
-                        <span class="text-xs font-semibold text-brand-accent">2026 - Presente</span>
-                        <h4 data-i18n="traj_e1_t" class="text-slate-900 dark:text-white font-bold text-base mt-1">
-                            Graduação em Desenvolvimento de Software Multiplataforma</h4>
-                        <p data-i18n="traj_e1_d" class="text-slate-500 dark:text-slate-400 text-xs mt-1">FATEC |
-                            Primeiro Semestre</p>
-                    </div>
-
-                    <div class="relative">
-                        <div class="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-slate-400 dark:bg-slate-700">
-                        </div>
-                        <span data-i18n="traj_e2_s"
-                            class="text-xs font-semibold text-slate-400 dark:text-slate-500">Eventos Acadêmicos</span>
-                        <h4 data-i18n="traj_e2_t" class="text-slate-900 dark:text-white font-bold text-base mt-1">
-                            Participação em Palestras Técnicas</h4>
-                        <p data-i18n="traj_e2_d" class="text-slate-600 dark:text-slate-400 text-xs mt-1">FATEC / UNESP —
-                            Integração acadêmica focada em inovação tecnológica, novas ferramentas de desenvolvimento e
-                            metodologias de mercado.</p>
-                    </div>
-
-                    <div class="relative">
-                        <div class="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-slate-400 dark:bg-slate-700">
-                        </div>
-                        <span data-i18n="traj_e3_s"
-                            class="text-xs font-semibold text-slate-400 dark:text-slate-500">Formação Técnica</span>
-                        <h4 data-i18n="traj_e3_t" class="text-slate-900 dark:text-white font-bold text-base mt-1">Ensino
-                            Médio Integrado ao Técnico em Eletrônica Industrial</h4>
-                        <p class="text-slate-500 dark:text-slate-400 text-xs mt-1">CTIG | UNESP</p>
-                    </div>
-                </div>
+        <section id="contato" class="contact-section">
+            <div class="contact-noise" aria-hidden="true">GHCR</div>
+            <div class="contact-inner reveal">
+                <p>05 / CONTATO</p>
+                <h2 data-i18n="contact_title">Vamos construir<br><span>algo juntos?</span></h2>
+                <p class="contact-note" data-i18n="contact_note">Disponível para propostas de estágio e projetos colaborativos.</p>
+                <a class="button button-black" href="mailto:guilhermeribeiro.hcr@gmail.com">guilhermeribeiro.hcr@gmail.com ↗</a>
             </div>
-
-            <div>
-                <h3
-                    class="text-2xl font-bold text-slate-900 dark:text-white mb-8 tracking-tight flex items-center gap-2">
-                    <span data-i18n="cert_title">Certificações & Cursos</span>
-                </h3>
-                <div class="space-y-4">
-                    <div
-                        class="bg-white dark:bg-brand-card border border-slate-200 dark:border-brand-border/70 p-4 rounded-lg flex justify-between items-center group hover:border-brand-accent/20 transition shadow-sm">
-                        <div>
-                            <h4
-                                class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-brand-accent transition">
-                                Participação do evento Técnologico do PIT</h4>
-                            <p data-i18n="cert_d1" class="text-xs text-slate-500 mt-0.5">Presente em palestras
-                                profissionais e na exibição de projetos.</p>
-                        </div>
-                        <a href="img\certificado convenção pit.pdf" target="_blank"
-                            class="text-xs text-brand-accent hover:underline flex items-center gap-1"><span
-                                data-i18n="cert_access">Acessar</span> <svg class="w-3 h-3" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
-                                </path>
-                            </svg></a>
-                    </div>
-
-                    <div
-                        class="bg-white dark:bg-brand-card border border-slate-200 dark:border-brand-border/70 p-4 rounded-lg flex justify-between items-center group hover:border-brand-accent/20 transition shadow-sm">
-                        <div>
-                            <h4 data-i18n="cert_t2"
-                                class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-brand-accent transition">
-                                Técnico em Eletrônica Industrial</h4>
-                            <p data-i18n="cert_d2" class="text-xs text-slate-500 mt-0.5">Ensino Técnico integrado ao
-                                ensino médio</p>
-                        </div>
-                        <a href="img\Imagem.png" target="_blank"
-                            class="text-xs text-brand-accent hover:underline flex items-center gap-1"><span
-                                data-i18n="cert_access">Acessar</span> <svg class="w-3 h-3" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
-                                </path>
-                            </svg></a>
-                    </div>
-
-                    <div
-                        class="bg-white dark:bg-brand-card border border-slate-200 dark:border-brand-border/70 p-4 rounded-lg flex justify-between items-center group hover:border-brand-accent/20 transition shadow-sm">
-                        <div>
-                            <h4 data-i18n="cert_t3"
-                                class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-brand-accent transition">
-                                Estágio na Área de eletrônica Industrial</h4>
-                            <p data-i18n="cert_d3" class="text-xs text-slate-500 mt-0.5">Confecção de componentes
-                                eletrônicos voltados para a area da criação de kits educacionais</p>
-                        </div>
-                        <a href="img\Imagem (2).png" target="_blank"
-                            class="text-xs text-brand-accent hover:underline flex items-center gap-1"><span
-                                data-i18n="cert_access">Acessar</span> <svg class="w-3 h-3" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
-                                </path>
-                            </svg></a>
-                    </div>
-                </div>
+            <div class="contact-links">
+                <a href="https://github.com/guilherme16092007" target="_blank" rel="noopener">GitHub ↗</a>
+                <a href="#inicio">Voltar ao topo ↑</a>
             </div>
-        </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- SEÇÃO CONTATO -->
-    <section id="contato" class="container mx-auto px-6 py-20 max-w-3xl text-center">
-        <div
-            class="bg-white dark:bg-brand-card border border-slate-200 dark:border-brand-border p-8 md:p-12 rounded-2xl shadow-2xl relative overflow-hidden">
-            <div class="absolute -right-16 -top-16 w-32 h-32 bg-brand-accent/10 rounded-full blur-xl"></div>
-            <h2 data-i18n="contact_title" class="text-3xl font-bold text-slate-900 dark:text-white tracking-tight">Vamos
-                construir algo juntos?</h2>
-            <p data-i18n="contact_subtitle" class="text-slate-600 dark:text-slate-400 text-sm mt-3 max-w-lg mx-auto">
-                Sinta-se à vontade para entrar em contato para propostas de estágio, projetos colaborativos ou conexões
-                profissionais.</p>
-
-            <div
-                class="mt-8 space-y-4 md:space-y-0 md:flex md:justify-center md:gap-8 text-sm text-slate-700 dark:text-slate-300">
-                <p class="flex items-center justify-center gap-2">
-                    <span class="text-slate-400">Email:</span>
-                    <strong
-                        class="text-slate-900 dark:text-white hover:text-brand-accent transition">guilhermeribeiro.hcr@gmail.com</strong>
-                </p>
-                <p class="flex items-center justify-center gap-2">
-                    <span class="text-slate-400">GitHub:</span>
-                    <a href="https://github.com/guilherme16092007" target="_blank"
-                        class="text-brand-accent hover:underline font-bold">github.com/guilherme16092007</a>
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <footer
-        class="text-center py-8 border-t border-slate-200 dark:border-brand-border text-slate-400 dark:text-slate-500 text-xs">
-        <p>© <span id="year"></span> Guilherme Henrique Campos Ribeiro. <span data-i18n="footer_rights">Todos os
-                direitos reservados.</span></p>
+    <footer>
+        <img src="img/brl_correto-removebg-preview (1) (1).png" alt="">
+        <p>© <span id="year"></span> Guilherme Henrique Campos Ribeiro</p>
     </footer>
 
-    <script>
-        // Tradução
-        // Objeto translations completo e revisado
-        const translations = {
-            pt: {
-                nav_about: "Sobre", nav_projects: "Projetos", nav_skills: "Competências", nav_trajectory: "Trajetória", nav_contact: "Contato", nav_resume: "Currículo PDF",
-                hero_role: "Desenvolvedor Software Multiplataforma",
-                about_p1: "Sou um desenvolvedor em formação, focado em transformar ideias complexas em soluções de software práticas, organizadas e altamente funcionais. Com uma base técnica sólida originada na <strong>Eletrônica Industrial (CTIG/UNESP)</strong>, possuo uma visão diferenciada que conecta a lógica abstrata do software à reality física do hardware.",
-                about_p2: "No ecossistema de desenvolvimento, possuo maior afinidade com o <strong>Back-end</strong>. É na arquitetura por trás da interface onde aplico conceitos de lógica estruturada, manipulação eficiente de dados e construção de sistemas robustos e escaláveis.",
-                about_p3: "Atualmente, expando minhas competências na <strong>FATEC</strong>, desenvolvendo projetos baseados em colaboração ágil (Git/GitHub) e metodologias que priorizam a produtividade e a entrega de valor real.",
-                projects_title: "Projetos em Destaque", projects_subtitle: "Aplicações acadêmicas e técnicas desenvolvidas com foco em arquitetura e impacto.",
-                proj_role_title: "Minha Atuação:",
-
-                proj1_tag: "Acadêmico (FATEC)", proj1_desc: "Plataforma desenvolvida para centralizar e democratizar o acesso a dados públicos sobre a atuação de deputados, auxiliando o voto consciente.", proj1_role: "Responsável pela camada de lógica back-end, estruturação e limpeza de dados utilizando bibliotecas de manipulação de dados e arquitetura modular de rotas.",
-                proj2_tag: "Web Interface", proj2_desc: "Desenvolvimento de um portal educacional completo simulando os serviços, fluxos informativos e a identidade visual de uma instituição de ensino.", proj2_role: "Concepção da arquitetura semântica das páginas, estilização responsiva cross-device, organização de layouts flexíveis e otimização de navegação rápida.",
-                proj3_tag: "Industrial / Hardware", proj3_desc: "Desenvolvimento de sistemas integrados de controle e monitoramento eletrônico durante a formação técnica integrada de nível médio.", proj3_role: "Análise, modelagem e teste prático de circuitos de potência de controle lógico. Desenvolvimento fundamentado na resolução analítica de problemas físicos de automação.",
-                proj4_tag: "Web Development / Cloud", proj4_desc: "Modernização completa da plataforma universitária, com foco em persistência de dados e infraestrutura escalável em ambiente de produção.", proj4_role: "Integração de banco de dados relacional para gestão dinâmica e implementação de containerização com Docker. Deploy e orquestração na AWS, garantindo alta disponibilidade.",
-                proj5_tag: "Front-end / UI", proj5_desc: "Portfólio web dinâmico e totalmente responsivo, construído para apresentar minha trajetória, competências e projetos com suporte a múltiplos idiomas.", proj5_role: "Desenvolvimento da interface moderna utilizando Tailwind CSS e JavaScript puro. Implementação de sistema próprio de internacionalização (i18n) e gestão de tema (Dark Mode).",
-
-                skills_title: "Competências Técnicas e Interpessoais", skills_subtitle: "Utilize as abas para alternar entre competências técnicas e metodológicas.",
-                skill_h1: "Lógica Avançada & Scripts", skill_h2: "Arquitetura Web API", skill_h3: "Análise de Dados Base", skill_h4: "Interfaces Modernas", skill_h5: "Design Responsivo Utilitário", skill_h6: "Estrutura de Banco de Dados",
-                skill_s1_t: "Trabalho em Equipe e Agilidade", skill_s1_d: "Experiência prática no desenvolvimento de projetos integradores utilizando versionamento compartilhado em Git e metodologias ágeis (Scrum/Kanban).",
-                skill_s2_t: "Pensamento Analítico e Lógico", skill_s2_d: "Facilidade natural com modelagem lógica de dados e arquitetura estruturada para resolução de problemas de fluxo complexo no back-end.",
-                skill_s3_t: "Abordagem Multidisciplinar (Hardware/Software)", skill_s3_d: "Capacidade analítica aprimorada devido à bagagem técnica em eletrônica, sabendo diagnosticar a correlação lógica entre restrições físicas e código.",
-                skill_s4_t: "Aprendizado Contínuo", skill_s4_d: "Proatividade no domínio autônomo de novas linguagens, ferramentas de dados e infraestruturas modernas de desenvolvimento.",
-
-                traj_title: "Trajetória & Eventos", traj_e1_t: "Graduação em Desenvolvimento de Software Multiplataforma", traj_e1_d: "FATEC | Primeiro Semestre", traj_e2_s: "Eventos Acadêmicos", traj_e2_t: "Participação em Palestras Técnicas", traj_e2_d: "FATEC / UNESP — Integração acadêmica focada em inovação tecnológica, novas ferramentas de desenvolvimento e metodologias de mercado.", traj_e3_s: "Formação Técnica", traj_e3_t: "Ensino Médio Integrado ao Técnico em Eletrônica Industrial",
-
-                cert_title: "Certificações & Cursos", cert_access: "Acessar", cert_d1: "Presente em palestras profissionais e na exibição de projetos.", cert_t2: "Técnico em Eletrônica Industrial", cert_d2: "Ensino Técnico integrado ao ensino médio", cert_t3: "Estágio na Área de eletrônica Industrial", cert_d3: "Confecção de componentes eletrônicos voltados para a area da criação de kits educacionais",
-
-                contact_title: "Vamos construir algo juntos?", contact_subtitle: "Sinta-se à vontade para entrar em contato para propostas de estágio, projetos colaborativos ou conexões profissionais.",
-                footer_rights: "Todos os direitos reservados."
-            },
-            en: {
-                nav_about: "About", nav_projects: "Projects", nav_skills: "Skills", nav_trajectory: "Trajectory", nav_contact: "Contact", nav_resume: "Resume PDF",
-                hero_role: "Multiplatform Software Developer",
-                about_p1: "I am a developer in training, focused on turning complex ideas into practical, organized, and highly functional software solutions. With a solid technical background in <strong>Industrial Electronics (CTIG/UNESP)</strong>, I have a distinct vision that connects abstract software logic with the physical reality of hardware.",
-                about_p2: "In the development ecosystem, I have a stronger affinity for the <strong>Back-end</strong>. It is within the architecture behind the interface that I apply concepts of structured logic, efficient data handling, and building robust, scalable systems.",
-                about_p3: "Currently, I am expanding my skills at <strong>FATEC</strong>, developing projects based on agile collaboration (Git/GitHub) and methodologies that prioritize productivity and real value delivery.",
-                projects_title: "Featured Projects", projects_subtitle: "Academic and technical applications built with a focus on architecture and impact.",
-                proj_role_title: "My Role:",
-
-                proj1_tag: "Academic (FATEC)", proj1_desc: "Platform developed to centralize and democratize access to public data on congressmen's activities, supporting conscious voting.", proj1_role: "Responsible for the back-end logic layer, structuring and data cleaning using data manipulation libraries and a modular routing architecture.",
-                proj2_tag: "Web Interface", proj2_desc: "Development of a complete educational portal simulating services, information flows, and the visual identity of an educational institution.", proj2_role: "Conception of the semantic architecture of pages, responsive cross-device styling, layout structure, and fast navigation optimization.",
-                proj3_tag: "Industrial / Hardware", proj3_desc: "Development of integrated electronic control and monitoring systems during my integrated technical secondary education.", proj3_role: "Analysis, modeling, and practical testing of power circuits for logical control. Development grounded in analytical resolution of physical automation issues.",
-                proj4_tag: "Web Development / Cloud", proj4_desc: "Complete modernization of the university platform, focusing on data persistence and scalable infrastructure in a production environment.", proj4_role: "Integration of relational database for dynamic management and implementation of containerization with Docker. Deployment and orchestration on AWS, ensuring high availability.",
-                proj5_tag: "Front-end / UI", proj5_desc: "Dynamic and fully responsive web portfolio built to showcase my trajectory, skills, and projects with multi-language support.", proj5_role: "Development of a modern interface using Tailwind CSS and vanilla JavaScript. Implementation of a custom internationalization (i18n) system and theme management (Dark Mode).",
-
-                skills_title: "Technical and Interpersonal Skills", skills_subtitle: "Use the tabs to toggle between hard skills and soft skills.",
-                skill_h1: "Advanced Logic & Scripting", skill_h2: "Web API Architecture", skill_h3: "Core Data Analysis", skill_h4: "Modern Interfaces", skill_h5: "Utility Responsive Design", skill_h6: "Database Structure",
-                skill_s1_t: "Teamwork and Agility", skill_s1_d: "Practical experience in developing integration projects using shared versioning in Git and agile methodologies (Scrum/Kanban).",
-                skill_s2_t: "Analytical and Logical Thinking", skill_s2_d: "Natural ease with logical data modeling and structured architecture to solve complex flow problems on the back-end.",
-                skill_s3_t: "Multidisciplinary Approach (Hardware/Software)", skill_s3_d: "Enhanced analytical capacity due to technical background in electronics, knowing how to diagnose logical correlations between physical constraints and code.",
-                skill_s4_t: "Continuous Learning", skill_s4_d: "Proactivity in autonomous mastery of new languages, data tools, and modern development infrastructures.",
-
-                traj_title: "Trajectory & Events", traj_e1_t: "Degree in Multiplatform Software Development", traj_e1_d: "FATEC | First Semester", traj_e2_s: "Academic Events", traj_e2_t: "Participation in Technical Lectures", traj_e2_d: "FATEC / UNESP — Academic integration focused on technological innovation, new development tools, and market methodologies.", traj_e3_s: "Technical Education", traj_e3_t: "High School Integrated with Technical Course in Industrial Electronics",
-
-                cert_title: "Participation in the PIT Technological Event", cert_access: "Verify", cert_d1: "Attended professional lectures and project exhibitions.", cert_t2: "Industrial Electronics Technician", cert_d2: "Technical education integrated with high school", cert_t3: "Internship in Industrial Electronics", cert_d3: "Assembly of electronic components for the creation of educational kits",
-
-                contact_title: "Let's build something together?", contact_subtitle: "Feel free to reach out for internship proposals, collaborative projects, or professional networking.",
-                footer_rights: "All rights reserved."
-            },
-            es: {
-                nav_about: "Sobre mí", nav_projects: "Proyectos", nav_skills: "Competencias", nav_trajectory: "Trayectoria", nav_contact: "Contacto", nav_resume: "Currículum PDF",
-                hero_role: "Desarrollador de Software Multiplataforma",
-                about_p1: "Soy un desarrollador en formación, enfocado en transformar ideas complejas en soluciones de software prácticas, organizadas y altamente funcionales. Con una sólida base técnica originada en la <strong>Electrónica Industrial (CTIG/UNESP)</strong>, poseo una visión diferenciada que conecta la lógica abstracta del software con la realidad física del hardware.",
-                about_p2: "En el ecosistema de desarrollo, tengo mayor afinidad con el <strong>Back-end</strong>. Es en la arquitectura detrás de la interfaz donde aplico conceptos de lógica estructurada, manipulación eficiente de datos y construcción de sistemas robustos y escalables.",
-                about_p3: "Actualmente, amplío mis competencias en la <strong>FATEC</strong>, desarrollando proyectos basados en colaboración ágil (Git/GitHub) y metodologías que priorizan la productividad y la entrega de valor real.",
-                projects_title: "Proyectos Destacados", projects_subtitle: "Aplicaciones académicas y técnicas desarrolladas con enfoque en arquitectura e impacto.",
-                proj_role_title: "Mi Contribución:",
-
-                proj1_tag: "Académico (FATEC)", proj1_desc: "Plataforma desarrollada para centralizar y democratizar el acceso a datos públicos sobre la gestión de diputados, ayudando al voto consciente.", proj1_role: "Responsable de la capa de lógica back-end, estructuración y limpieza de datos utilizando librerías de manipulación de datos y arquitectura modular de rutas.",
-                proj2_tag: "Interfaz Web", proj2_desc: "Desarrollo de un portal educativo completo simulando los servicios, flujos informativos y la identidad visual de una institución educativa.", proj2_role: "Concepción de la arquitectura semántica de las páginas, estilización responsiva cross-device, organización de diseños flexibles y optimización de navegación rápida.",
-                proj3_tag: "Industrial / Hardware", proj3_desc: "Desarrollo de sistemas integrados de control y monitoreo electrónico durante la educación técnica integrada de nivel medio.", proj3_role: "Análisis, modelado y pruebas prácticas de circuitos de potencia de control lógico. Desarrollo fundamentado en la resolución analítica de problemas físicos de automatización.",
-                proj4_tag: "Web Development / Cloud", proj4_desc: "Modernización completa de la plataforma universitaria, con enfoque en persistencia de datos e infraestructura escalable en entorno de producción.", proj4_role: "Integración de base de datos relacional para gestión dinámica e implementación de contenedorización con Docker. Despliegue y orquestación en AWS, garantizando alta disponibilidad.",
-                proj5_tag: "Front-end / UI", proj5_desc: "Portafolio web dinámico y totalmente responsivo, construido para presentar mi trayectoria, habilidades y proyectos con soporte multilingüe.", proj5_role: "Desarrollo de la interfaz moderna utilizando Tailwind CSS y JavaScript puro. Implementación de un sistema propio de internacionalización (i18n) y gestión de temas (Dark Mode).",
-
-                skills_title: "Competencias Técnicas e Interpersonales", skills_subtitle: "Utilice las pestañas para alternar entre competencias técnicas y metodológicas.",
-                skill_h1: "Lógica Avanzada y Scripts", skill_h2: "Arquitectura Web API", skill_h3: "Análisis de Datos Base", skill_h4: "Interfaces Modernas", skill_h5: "Diseño Responsivo Utilitario", skill_h6: "Estructura de Base de Datos",
-                skill_s1_t: "Trabajo en Equipo y Agilidad", skill_s1_d: "Experiencia práctica en el desarrollo de proyectos integradores utilizando control de versiones compartido en Git y metodologías ágiles (Scrum/Kanban).",
-                skill_s2_t: "Pensamiento Analítico y Lógico", skill_s2_d: "Facilidad natural con el modelado lógico de datos y arquitectura estructurada para resolver problemas de flujo complejos en el back-end.",
-                skill_s3_t: "Enfoque Multidisciplinar (Hardware/Software)", skill_s3_d: "Capacidad analítica mejorada debido a la experiencia técnica en electrónica, sabiendo diagnosticar la correlación lógica entre restricciones físicas y código.",
-                skill_s4_t: "Aprendizaje Continuo", skill_s4_d: "Proactividad en el dominio autónomo de nuevos lenguajes, herramientas de datos e infraestructuras modernas de desarrollo.",
-
-                traj_title: "Trayectoria y Eventos", traj_e1_t: "Graduación en Desarrollo de Software Multiplataforma", traj_e1_d: "FATEC | Primer Semestre", traj_e2_s: "Eventos Académicos", traj_e2_t: "Participación en Conferencias Técnicas", traj_e2_d: "FATEC / UNESP — Integración académica centrada en la innovación tecnológica, nuevas herramientas de desarrollo y metodologías de mercado.", traj_e3_s: "Formación Técnica", traj_e3_t: "Educación Media Integrada al Técnico en Electrónica Industrial",
-
-                cert_title: "Participación en el evento Tecnológico del PIT", cert_access: "Acceder", cert_d1: "Presente en conferencias profesionales y en la exhibición de proyectos.", cert_t2: "Técnico en Electrónica Industrial", cert_d2: "Educación técnica integrada a la escuela secundaria", cert_t3: "Pasantía en el área de Electrónica Industrial", cert_d3: "Confección de componentes electrónicos orientados al área de creación de kits educativos",
-
-                contact_title: "¿Vamos a construir algo juntos?", contact_subtitle: "Siéntase libre de ponerse en contacto para propuestas de prácticas, proyectos colaborativos o conexiones profesionales.",
-                footer_rights: "Todos los derechos reservados."
-            }
-        };
-
-        function setupLanguage() {
-            const langSelector = document.getElementById('lang-selector');
-            const langSelectorMobile = document.getElementById('lang-selector-mobile');
-
-            function changeLanguage(lang) {
-                document.querySelectorAll('[data-i18n]').forEach(element => {
-                    const key = element.getAttribute('data-i18n');
-                    if (translations[lang] && translations[lang][key]) {
-                        element.innerHTML = translations[lang][key];
-                    }
-                });
-                langSelector.value = lang;
-                langSelectorMobile.value = lang;
-                localStorage.setItem('preferred-lang', lang);
-            }
-
-            langSelector.addEventListener('change', (e) => changeLanguage(e.target.value));
-            langSelectorMobile.addEventListener('change', (e) => changeLanguage(e.target.value));
-
-            // Carrega idioma salvo ou detecta o padrão do navegador
-            const savedLang = localStorage.getItem('preferred-lang') || (navigator.language.startsWith('es') ? 'es' : navigator.language.startsWith('en') ? 'en' : 'pt');
-            changeLanguage(savedLang);
-        }
-
-        // Tema claro/escuro
-        function setupTheme() {
-            const themeToggleBtn = document.getElementById('theme-toggle');
-            const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
-            const darkIcon = document.getElementById('theme-toggle-dark-icon');
-            const lightIcon = document.getElementById('theme-toggle-light-icon');
-
-            // Inicialização dos ícones visíveis com base no estado do HTML
-            function updateIcons() {
-                if (document.documentElement.classList.contains('dark')) {
-                    lightIcon.classList.remove('hidden');
-                    darkIcon.classList.add('hidden');
-                } else {
-                    darkIcon.classList.remove('hidden');
-                    lightIcon.classList.add('hidden');
-                }
-            }
-
-            function toggleTheme() {
-                if (document.documentElement.classList.contains('dark')) {
-                    document.documentElement.classList.remove('dark');
-                    localStorage.setItem('color-theme', 'light');
-                } else {
-                    document.documentElement.classList.add('dark');
-                    localStorage.setItem('color-theme', 'dark');
-                }
-                updateIcons();
-            }
-
-            themeToggleBtn.addEventListener('click', toggleTheme);
-            themeToggleMobileBtn.addEventListener('click', toggleTheme);
-
-            // Checa preferência anterior salva
-            if (localStorage.getItem('color-theme') === 'light' || (!('color-theme' in localStorage) && !window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.documentElement.classList.remove('dark');
-            } else {
-                document.documentElement.classList.add('dark');
-            }
-            updateIcons();
-        }
-
-        // Carrossel
-        function setupCarousel() {
-            const track = document.getElementById('carousel-track');
-            const prevBtn = document.getElementById('prev-project');
-            const nextBtn = document.getElementById('next-project');
-
-            if (!track || !prevBtn || !nextBtn) return;
-
-            // Deslocamento lateral calculado com base no tamanho do primeiro card visível
-            nextBtn.addEventListener('click', () => {
-                const cardWidth = track.firstElementChild.getBoundingClientRect().width + 24; // width + gap
-                track.scrollBy({ left: cardWidth, behavior: 'smooth' });
-            });
-
-            prevBtn.addEventListener('click', () => {
-                const cardWidth = track.firstElementChild.getBoundingClientRect().width + 24;
-                track.scrollBy({ left: -cardWidth, behavior: 'smooth' });
-            });
-        }
-
-        // Funcionalidades
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        const tabHard = document.getElementById('tab-hard');
-        const tabSoft = document.getElementById('tab-soft');
-        const contentHard = document.getElementById('content-hard');
-        const contentSoft = document.getElementById('content-soft');
-
-        function switchTab(activeTab, inactiveTab, activeContent, inactiveContent) {
-            activeTab.classList.remove('border-transparent', 'text-slate-400', 'hover:text-slate-600', 'dark:hover:text-slate-300');
-            activeTab.classList.add('border-brand-accent', 'text-slate-900', 'dark:text-white');
-
-            inactiveTab.classList.remove('border-brand-accent', 'text-slate-900', 'dark:text-white');
-            inactiveTab.classList.add('border-transparent', 'text-slate-400', 'hover:text-slate-600', 'dark:hover:text-slate-300');
-
-            activeContent.classList.remove('hidden');
-            inactiveContent.classList.add('hidden');
-        }
-
-        tabHard.addEventListener('click', () => switchTab(tabHard, tabSoft, contentHard, contentSoft));
-        tabSoft.addEventListener('click', () => switchTab(tabSoft, tabHard, contentSoft, contentHard));
-
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Inicializar recursos extras ao carregar a página
-        window.addEventListener('DOMContentLoaded', () => {
-            setupTheme();
-            setupLanguage();
-            setupCarousel();
-        });
-    </script>
-
+    <script src="script.js"></script>
 </body>
-
 </html>
