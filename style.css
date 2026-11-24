@@ -184,7 +184,7 @@ a:focus-visible, button:focus-visible, select:focus-visible { outline: 3px solid
 .skill-column { padding: 40px; }
 .skill-column-dark { background: var(--ink); color: var(--paper); }
 .skill-kicker { font-size: 11px; font-weight: 900; letter-spacing: .18em; border-bottom: 1px solid currentColor; padding-bottom: 12px; }
-.skill-tags { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 10px; }
+.skill-tags { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 10px; margin-top: 14    px; }
 .skill-tag { width: 100%; min-height: 58px; padding: 14px 10px; border: 1px solid var(--ink); background: transparent; color: inherit; text-align: center; font-family: var(--display); font-size: clamp(15px, 1.15vw, 18px); text-transform: uppercase; transform: rotate(-1deg); cursor: pointer; transition: background .22s ease, color .22s ease, border-color .22s ease, transform .22s ease, box-shadow .22s ease; }
 .skill-tag b { display: block; font: inherit; }
 .skill-tag > span { display: none; }
