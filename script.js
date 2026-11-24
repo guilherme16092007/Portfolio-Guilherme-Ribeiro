@@ -266,6 +266,16 @@ mobileLanguageSelect.addEventListener("change", event => applyLanguage(event.tar
 applyLanguage(initialLanguage);
 
 const skillTags = document.querySelectorAll(".skill-tag");
+const skillDetail = document.getElementById("skill-detail");
+
+function showSkillDetail(skill) {
+    if (!skillDetail) return;
+    const name = skill.querySelector("b")?.textContent.trim();
+    const description = skill.querySelector("span")?.textContent.trim();
+    if (name && description) {
+        skillDetail.innerHTML = `<b>${name}</b><span>${description}</span>`;
+    }
+}
 
 skillTags.forEach(skill => {
     skill.addEventListener("click", () => {
@@ -277,8 +287,11 @@ skillTags.forEach(skill => {
         if (willOpen) {
             skill.classList.add("active");
             skill.setAttribute("aria-expanded", "true");
+            showSkillDetail(skill);
         }
     });
+
+    skill.addEventListener("mouseenter", () => showSkillDetail(skill));
 });
 
 document.addEventListener("click", event => {

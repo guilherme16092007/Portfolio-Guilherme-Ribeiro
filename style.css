@@ -184,16 +184,16 @@ a:focus-visible, button:focus-visible, select:focus-visible { outline: 3px solid
 .skill-column { padding: 40px; }
 .skill-column-dark { background: var(--ink); color: var(--paper); }
 .skill-kicker { font-size: 11px; font-weight: 900; letter-spacing: .18em; border-bottom: 1px solid currentColor; padding-bottom: 12px; }
-.skill-tags { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: start; gap: 10px; }
-.skill-tag { width: 100%; min-height: 58px; padding: 14px 10px; border: 1px solid var(--ink); background: transparent; color: inherit; text-align: center; font-family: var(--display); font-size: clamp(17px, 1.45vw, 21px); text-transform: uppercase; transform: rotate(-1deg); cursor: pointer; transition: min-height .28s cubic-bezier(.2,.8,.2,1), background .22s ease, color .22s ease, border-color .22s ease, transform .28s cubic-bezier(.2,.8,.2,1), box-shadow .28s ease; }
+.skill-tags { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 10px; }
+.skill-tag { width: 100%; min-height: 58px; padding: 14px 10px; border: 1px solid var(--ink); background: transparent; color: inherit; text-align: center; font-family: var(--display); font-size: clamp(15px, 1.15vw, 18px); text-transform: uppercase; transform: rotate(-1deg); cursor: pointer; transition: background .22s ease, color .22s ease, border-color .22s ease, transform .22s ease, box-shadow .22s ease; }
 .skill-tag b { display: block; font: inherit; }
-.skill-tag > span { display: block; max-height: 0; overflow: hidden; opacity: 0; font-family: var(--body); font-size: 11px; line-height: 1.4; text-transform: none; transition: max-height .28s cubic-bezier(.2,.8,.2,1), opacity .18s ease, margin-top .28s ease; }
+.skill-tag > span { display: none; }
 .skill-tag:hover,
 .skill-tag:focus-visible,
-.skill-tag.active { min-height: 108px; background: var(--yellow); color: var(--ink); border-color: var(--ink); transform: translateY(-3px) rotate(0deg); box-shadow: 3px 3px 0 var(--ink); }
-.skill-tag:hover > span,
-.skill-tag:focus-visible > span,
-.skill-tag.active > span { max-height: 120px; margin-top: 8px; opacity: 1; }
+.skill-tag.active { background: var(--yellow); color: var(--ink); border-color: var(--ink); transform: translateY(-3px) rotate(0deg); box-shadow: 3px 3px 0 var(--ink); }
+.skill-detail { min-height: 82px; margin-top: 14px; padding: 14px 16px; border: 1px solid var(--ink); border-left: 8px solid var(--yellow); display: grid; align-content: center; gap: 5px; }
+.skill-detail b { font-family: var(--display); font-size: 18px; text-transform: uppercase; }
+.skill-detail span { font-size: 12px; line-height: 1.45; }
 .soft-skills p { display: grid; grid-template-columns: 40px 1fr; border-bottom: 1px solid #444; margin: 0; padding: 19px 0; line-height: 1.35; }
 .soft-skills b { color: var(--yellow); }
 .soft-skills p > span { display: grid; gap: 5px; }
@@ -367,7 +367,7 @@ html.dark .credentials { box-shadow: 10px 10px 0 rgba(242,240,232,.35); }
     .skill-tag { min-width: 0; max-width: none; min-height: 54px; font-size: 17px; }
     .skill-tag:hover,
     .skill-tag:focus-visible,
-    .skill-tag.active { min-height: 112px; min-width: 0; max-width: none; transform: translateY(-2px) rotate(0deg); box-shadow: 3px 3px 0 var(--ink); }
+    .skill-tag.active { min-height: 54px; min-width: 0; max-width: none; transform: translateY(-2px) rotate(0deg); box-shadow: 3px 3px 0 var(--ink); }
     .contact-inner .contact-note { margin-top: -22px; font-size: 12px; }
     .path-layout { grid-template-columns: minmax(0, 1fr); width: 100%; min-width: 0; }
     .timeline { max-width: 100%; width: 100%; min-width: 0; }
