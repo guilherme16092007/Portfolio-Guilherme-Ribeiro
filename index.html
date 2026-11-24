@@ -28,8 +28,6 @@
 
             <a class="resume-mobile" href="documentos/curriculo.html" target="_blank" rel="noopener" data-i18n="resume">Currículo ↗</a>
 
-            <a class="resume-mobile" href="img/curriculo-guilherme-ribeiro.pdf" target="_blank" rel="noopener" download="curriculo-guilherme-ribeiro.pdf" data-i18n="resume">Currículo ↗</a>
-
             <select id="language-select-mobile" class="mobile-language" aria-label="Idioma">
                 <option value="pt">PT</option>
                 <option value="en">EN</option>
@@ -99,6 +97,18 @@
                 <div class="about-copy reveal">
                     <p data-i18n="about_p1">Sou um desenvolvedor em formação, focado em transformar ideias complexas em soluções de software práticas, organizadas e altamente funcionais. Minha formação em Eletrônica Industrial no CTIG/UNESP me deu uma visão que conecta software e hardware.</p>
                     <p data-i18n="about_p2">Possuo maior afinidade com back-end: lógica estruturada, manipulação eficiente de dados e sistemas robustos e escaláveis. Atualmente, expando minhas competências na FATEC por meio de projetos colaborativos com Git/GitHub e metodologias ágeis.</p>
+                    <div class="profile-goals">
+                        <article class="profile-goal-card">
+                            <span class="profile-goal-index">01</span>
+                            <h3 data-i18n="goals_label">Objetivos acadêmicos e profissionais</h3>
+                            <p data-i18n="goals_text">Conclusão do curso de DSM na FATEC, consolidação da atuação em desenvolvimento de software back-end e evolução para soluções completas que integrem dados, APIs e infraestrutura.</p>
+                        </article>
+                        <article class="profile-goal-card">
+                            <span class="profile-goal-index">02</span>
+                            <h3 data-i18n="interests_label">Áreas de interesse</h3>
+                            <p data-i18n="interests_text">Desenvolvimento back-end, APIs REST, bancos de dados, infraestrutura com Docker/AWS e integração entre software e hardware.</p>
+                        </article>
+                    </div>
                 </div>
             </div>
         </section>
@@ -113,6 +123,8 @@
                 <button class="filter" type="button" data-filter="backend" aria-pressed="false">Backend</button>
                 <button class="filter" type="button" data-filter="web" aria-pressed="false">Web</button>
                 <button class="filter" type="button" data-filter="academic" aria-pressed="false">Acadêmico</button>
+                <button class="filter" type="button" data-filter="professional" aria-pressed="false">Profissional</button>
+                <button class="filter" type="button" data-filter="personal" aria-pressed="false">Pessoal</button>
                 <button class="filter" type="button" data-filter="hardware" aria-pressed="false">Hardware</button>
             </div>
             <div class="project-wall grid grid-cols-1 min-[681px]:grid-cols-12 gap-5">
@@ -122,11 +134,16 @@
                     <h3>Greencode</h3>
                     <p data-i18n="proj6_desc">Plataforma de logística reversa para rastrear equipamentos eletrônicos e sua cadeia de triagem, desmonte e recuperação.</p>
                     <p class="project-role"><b data-i18n="project_role_label">Atuação</b><span data-i18n="proj6_role">Arquitetura e desenvolvimento do CLI e da API Fastify, com autenticação JWT, Prisma/PostgreSQL, analytics e relatórios assíncronos.</span></p>
+                    <div class="project-facts">
+                        <p><b data-i18n="project_problem_label">Problema</b><span data-i18n="proj6_problem">Organizações geradoras de resíduos eletrônicos precisam rastrear equipamentos, lotes e operações de triagem, desmonte e recuperação em uma cadeia operacional auditável.</span></p>
+                        <p><b data-i18n="project_hard_label">Hard skills</b><span data-i18n="proj6_hard">Arquitetura em camadas, APIs REST, autenticação JWT, Prisma, PostgreSQL, Docker, testes automatizados e processamento assíncrono.</span></p>
+                        <p><b data-i18n="project_soft_label">Soft skills</b><span data-i18n="proj6_soft">Planejamento técnico, organização da implementação e documentação de decisões arquiteturais.</span></p>
+                    </div>
                     <ul class="tech-list"><li>TypeScript</li><li>Node.js</li><li>Fastify</li><li>Prisma</li><li>PostgreSQL</li><li>Docker</li></ul>
                     <a class="project-link" href="https://github.com/guilherme16092007/AVI3" target="_blank" rel="noopener">Ver repositório ↗</a>
                 </article>
 
-                <article class="project-card reveal" data-category="web">
+                <article class="project-card reveal" data-category="web academic">
                     <div class="project-meta"><span>02</span><span>WEB / CLOUD</span></div>
                     <img class="project-image" src="img/nova-aurora.png" alt="Captura do Portal Acadêmico Nova Aurora">
                     <h3>Portal Acadêmico Nova Aurora</h3>
@@ -139,9 +156,16 @@
                 <article class="project-card reveal" data-category="backend academic">
                     <div class="project-meta"><span>03</span><span>ACADÊMICO / FATEC</span></div>
                     <div class="project-mark compact">API<span>VOTO</span></div>
-                    <h3>API dos Deputados</h3>
+                    <h3>Radar Cidadão</h3>
                     <p data-i18n="proj1_desc">Plataforma para centralizar e democratizar o acesso a dados públicos sobre a atuação de deputados, auxiliando o voto consciente.</p>
                     <p class="project-role"><b data-i18n="project_role_label">Atuação</b><span data-i18n="proj1_role">Responsável pela lógica back-end, organização e tratamento de dados com Pandas e estrutura modular de rotas Flask.</span></p>
+                    <div class="project-facts">
+                        <p><b data-i18n="project_partner_label">Empresa parceira</b><span data-i18n="proj1_partner">FATEC São José dos Campos — desafio validado pelo professor Fernando Masanori como parceiro do projeto.</span></p>
+                        <p><b data-i18n="project_problem_label">Problema</b><span data-i18n="proj1_problem">Dados públicos sobre presença, gastos e atividades parlamentares são dispersos e técnicos, dificultando que eleitores avaliem candidatos à reeleição.</span></p>
+                        <p><b data-i18n="project_solution_label">Solução</b><span data-i18n="proj1_solution">Aplicação web com dados da API da Câmara organizados em filtros, resumos, gráficos e informações educativas em linguagem acessível.</span></p>
+                        <p><b data-i18n="project_hard_label">Hard skills</b><span data-i18n="proj1_hard">Python, Flask, Pandas, integração com API pública, Docker, MariaDB, AWS e organização de dados.</span></p>
+                        <p><b data-i18n="project_soft_label">Soft skills</b><span data-i18n="proj1_soft">Trabalho em equipe, Scrum, comunicação com o parceiro, organização por sprints e colaboração com Git/GitHub.</span></p>
+                    </div>
                     <ul class="tech-list"><li>Python</li><li>Flask</li><li>Pandas</li></ul>
                     <a class="project-link" href="https://github.com/APILumina/API1_DSM_Lumina" target="_blank" rel="noopener">Ver repositório ↗</a>
                 </article>
@@ -176,7 +200,7 @@
                     <span class="project-note">Projeto preservado do portfólio anterior</span>
                 </article>
 
-                <article class="project-card reveal" data-category="web">
+                <article class="project-card reveal" data-category="personal web">
                     <div class="project-meta"><span>07</span><span>FRONT-END / UI</span></div>
                     <div class="project-poster portfolio"><b>GH</b><span>PORTFÓLIO<br>PESSOAL</span></div>
                     <h3>Portfólio Web Moderno</h3>
@@ -184,6 +208,19 @@
                     <p class="project-role"><b data-i18n="project_role_label">Atuação</b><span data-i18n="proj5_role">Criação da interface responsiva, alternância de tema e suporte multilíngue com JavaScript.</span></p>
                     <ul class="tech-list"><li>HTML5</li><li>CSS</li><li>JavaScript ES6+</li><li>Tailwind CSS</li></ul>
                     <a class="project-link" href="https://github.com/guilherme16092007/Portfolio-Guilherme-Ribeiro" target="_blank" rel="noopener">Ver repositório ↗</a>
+                </article>
+
+                <article class="project-card reveal" data-category="professional hardware">
+                    <div class="project-meta"><span>08</span><span>PROFISSIONAL / ESTÁGIO</span></div>
+                    <div class="project-poster industrial"><b>STG</b><span>ELETRÔNICA<br>INDUSTRIAL</span></div>
+                    <h3>Estágio em Eletrônica Industrial</h3>
+                    <p data-i18n="professional_desc">Atividade profissional de estágio relacionada à preparação e conferência de componentes destinados a kits educacionais de eletrônica.</p>
+                    <p class="project-role"><b data-i18n="project_role_label">Atuação</b><span data-i18n="professional_role">Manipulação e organização de componentes, aplicação de conhecimentos de eletrônica industrial e apoio à montagem de materiais didáticos.</span></p>
+                    <div class="project-facts">
+                        <p><b data-i18n="project_hard_label">Hard skills</b><span data-i18n="professional_hard">Eletrônica industrial, interpretação de componentes, organização de materiais e conferência técnica.</span></p>
+                        <p><b data-i18n="project_soft_label">Soft skills</b><span data-i18n="professional_soft">Responsabilidade, atenção a detalhes, organização e precisão nas atividades.</span></p>
+                    </div>
+                    <a class="project-link" href="documentos/comprovante-estagio.html" target="_blank" rel="noopener">Ver comprovante ↗</a>
                 </article>
             </div>
         </section>
@@ -197,18 +234,22 @@
                 <div class="skill-column reveal">
                     <p class="skill-kicker">HARD SKILLS</p>
                     <div class="skill-tags">
-                        <span>Python</span><span>JavaScript</span><span>TypeScript</span><span>HTML5 / CSS3</span>
-                        <span>Node.js</span><span>Flask</span><span>Fastify</span><span>Prisma</span>
-                        <span>PostgreSQL</span><span>MySQL</span><span>Docker</span><span>Pandas</span>
-                        <span>Git / GitHub</span><span>Eletrônica</span><span>Bootstrap</span><span>SBD</span>
-                    </div>
-                    <div class="skill-focus-grid" aria-label="Áreas de aplicação">
-                        <p><b>Python</b><span data-i18n="skill_h1">Lógica avançada e scripts</span></p>
-                        <p><b>Flask</b><span data-i18n="skill_h2">Arquitetura de APIs web</span></p>
-                        <p><b>Pandas</b><span data-i18n="skill_h3">Análise e tratamento de dados</span></p>
-                        <p><b>HTML / CSS</b><span data-i18n="skill_h4">Interfaces modernas</span></p>
-                        <p><b>Bootstrap / Tailwind</b><span data-i18n="skill_h5">Design responsivo utilitário</span></p>
-                        <p><b>SBD</b><span data-i18n="skill_h6">Estrutura de banco de dados</span></p>
+                        <button class="skill-tag" type="button" aria-expanded="false"><b>Python</b><span data-i18n="skill_python">Utilizei scripts e regras de negócio em APIs e projetos de dados.</span></button>
+                        <button class="skill-tag" type="button" aria-expanded="false"><b>JavaScript</b><span data-i18n="skill_javascript">Utilizei JavaScript para interfaces, filtros e interações no portfólio e em projetos web.</span></button>
+                        <button class="skill-tag" type="button" aria-expanded="false"><b>TypeScript</b><span data-i18n="skill_typescript">Desenvolvi serviços tipados, validações e arquitetura orientada a objetos no projeto Greencode.</span></button>
+                        <button class="skill-tag" type="button" aria-expanded="false"><b>HTML5 / CSS3</b><span data-i18n="skill_html_css">Construí páginas responsivas, estruturadas e com identidade visual consistente.</span></button>
+                        <button class="skill-tag" type="button" aria-expanded="false"><b>Node.js</b><span data-i18n="skill_node">Utilizei o runtime para criar CLI, APIs REST e processamento assíncrono em back-end.</span></button>
+                        <button class="skill-tag" type="button" aria-expanded="false"><b>Flask</b><span data-i18n="skill_flask">Desenvolvi rotas, integrações com dados públicos e aplicações web completas em Python.</span></button>
+                        <button class="skill-tag" type="button" aria-expanded="false"><b>Fastify</b><span data-i18n="skill_fastify">Implementei uma API REST em camadas com autenticação, documentação e controle de acesso.</span></button>
+                        <button class="skill-tag" type="button" aria-expanded="false"><b>Prisma</b><span data-i18n="skill_prisma">Modelei entidades e realizei consultas, migrações e transações com PostgreSQL.</span></button>
+                        <button class="skill-tag" type="button" aria-expanded="false"><b>PostgreSQL</b><span data-i18n="skill_postgresql">Estruturei tabelas, relações, migrações e persistência para sistemas back-end.</span></button>
+                        <button class="skill-tag" type="button" aria-expanded="false"><b>MySQL</b><span data-i18n="skill_mysql">Modelei banco de dados e implementei cadastro e consulta em projetos acadêmicos web.</span></button>
+                        <button class="skill-tag" type="button" aria-expanded="false"><b>Docker</b><span data-i18n="skill_docker">Usei containers e Docker Compose para padronizar ambientes de aplicação e banco de dados.</span></button>
+                        <button class="skill-tag" type="button" aria-expanded="false"><b>Pandas</b><span data-i18n="skill_pandas">Limpei, organizei e analisei dados públicos para disponibilizá-los em interfaces e gráficos.</span></button>
+                        <button class="skill-tag" type="button" aria-expanded="false"><b>Git / GitHub</b><span data-i18n="skill_git">Controlei versões, branches e colaborações em equipes usando GitHub e metodologias ágeis.</span></button>
+                        <button class="skill-tag" type="button" aria-expanded="false"><b>Eletrônica</b><span data-i18n="skill_electronics">Apliquei conhecimentos de circuitos, controle e componentes em projetos técnicos e estágio.</span></button>
+                        <button class="skill-tag" type="button" aria-expanded="false"><b>Bootstrap</b><span data-i18n="skill_bootstrap">Utilizei componentes e grid responsivo para estruturar interfaces web.</span></button>
+                        <button class="skill-tag" type="button" aria-expanded="false"><b>SBD</b><span data-i18n="skill_sbd">Projetei modelos, relações e regras de integridade em bancos de dados relacionais.</span></button>
                     </div>
                 </div>
                 <div class="skill-column skill-column-dark reveal">

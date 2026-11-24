@@ -116,6 +116,12 @@ a:focus-visible, button:focus-visible, select:focus-visible { outline: 3px solid
 .manifest { margin: 0; padding: 45px 8% 45px 0; border-right: 10px solid var(--yellow); font-family: Georgia, serif; font-size: clamp(28px, 3.5vw, 52px); line-height: 1.05; }
 .about-copy { font-size: clamp(17px, 1.4vw, 21px); line-height: 1.6; }
 .about-copy p { margin-top: 0; }
+.profile-goals { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 24px; }
+.profile-goal-card { position: relative; min-width: 0; margin: 0; padding: 24px 18px 18px; border: 1px solid var(--ink); background: transparent; }
+.profile-goal-card::before { content: ""; position: absolute; top: -6px; left: 18px; width: 54px; height: 12px; background: var(--yellow); transform: rotate(-3deg); }
+.profile-goal-index { display: block; padding-bottom: 8px; border-bottom: 1px solid var(--ink); font-size: 9px; font-weight: 900; letter-spacing: .12em; }
+.profile-goal-card h3 { margin: 14px 0 8px; font-family: var(--display); font-size: clamp(20px, 2vw, 28px); line-height: .92; text-transform: uppercase; }
+.profile-goal-card p { margin: 0; font-size: 12px; line-height: 1.45; }
 
 .projects-section { background: var(--ink); color: var(--paper); }
 .projects-section { background-image: radial-gradient(rgba(242,240,232,.12) .7px, transparent .7px); background-size: 7px 7px; }
@@ -154,6 +160,9 @@ a:focus-visible, button:focus-visible, select:focus-visible { outline: 3px solid
 .project-card > p { max-width: 680px; line-height: 1.45; font-size: 14px; }
 .project-card > p.project-role { display: grid; grid-template-columns: auto 1fr; gap: 8px; border-left: 3px solid var(--yellow); padding-left: 10px; font-size: 11px; }
 .project-card > p.project-role b { text-transform: uppercase; font-size: 9px; letter-spacing: .1em; }
+.project-facts { display: grid; gap: 7px; margin: 10px 0 12px; }
+.project-facts p { display: grid; grid-template-columns: auto 1fr; gap: 8px; margin: 0; border-left: 3px solid var(--yellow); padding-left: 10px; font-size: 11px; line-height: 1.42; }
+.project-facts b { text-transform: uppercase; font-size: 9px; letter-spacing: .1em; }
 .project-mark { height: 220px; display: grid; place-items: center; background: var(--ink); color: var(--yellow); font-family: var(--display); font-size: clamp(54px, 8vw, 112px); letter-spacing: -.04em; margin: 18px 0 0; transform: rotate(-1deg); }
 .project-mark span { font-family: var(--body); font-size: 12px; margin-left: 6px; vertical-align: top; }
 .project-mark.compact { background: repeating-linear-gradient(135deg, var(--ink), var(--ink) 12px, #181818 12px, #181818 24px); height: 170px; }
@@ -175,12 +184,16 @@ a:focus-visible, button:focus-visible, select:focus-visible { outline: 3px solid
 .skill-column { padding: 40px; }
 .skill-column-dark { background: var(--ink); color: var(--paper); }
 .skill-kicker { font-size: 11px; font-weight: 900; letter-spacing: .18em; border-bottom: 1px solid currentColor; padding-bottom: 12px; }
-.skill-tags { display: flex; flex-wrap: wrap; gap: 10px; }
-.skill-tags span { border: 2px solid var(--ink); min-width: 130px; padding: 16px 12px; text-align: center; font-family: var(--display); font-size: 22px; text-transform: uppercase; transform: rotate(-1deg); }
-.skill-focus-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 20px; margin-top: 24px; border-top: 1px solid var(--line); }
-.skill-focus-grid p { display: grid; gap: 4px; padding: 13px 0; margin: 0; border-bottom: 1px solid var(--line); font-size: 12px; }
-.skill-focus-grid p b { text-transform: uppercase; font-size: 10px; }
-.skill-focus-grid p span { line-height: 1.4; }
+.skill-tags { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: start; gap: 10px; }
+.skill-tag { width: 100%; min-height: 58px; padding: 14px 10px; border: 1px solid var(--ink); background: transparent; color: inherit; text-align: center; font-family: var(--display); font-size: clamp(17px, 1.45vw, 21px); text-transform: uppercase; transform: rotate(-1deg); cursor: pointer; transition: min-height .28s cubic-bezier(.2,.8,.2,1), background .22s ease, color .22s ease, border-color .22s ease, transform .28s cubic-bezier(.2,.8,.2,1), box-shadow .28s ease; }
+.skill-tag b { display: block; font: inherit; }
+.skill-tag > span { display: block; max-height: 0; overflow: hidden; opacity: 0; font-family: var(--body); font-size: 11px; line-height: 1.4; text-transform: none; transition: max-height .28s cubic-bezier(.2,.8,.2,1), opacity .18s ease, margin-top .28s ease; }
+.skill-tag:hover,
+.skill-tag:focus-visible,
+.skill-tag.active { min-height: 108px; background: var(--yellow); color: var(--ink); border-color: var(--ink); transform: translateY(-3px) rotate(0deg); box-shadow: 3px 3px 0 var(--ink); }
+.skill-tag:hover > span,
+.skill-tag:focus-visible > span,
+.skill-tag.active > span { max-height: 120px; margin-top: 8px; opacity: 1; }
 .soft-skills p { display: grid; grid-template-columns: 40px 1fr; border-bottom: 1px solid #444; margin: 0; padding: 19px 0; line-height: 1.35; }
 .soft-skills b { color: var(--yellow); }
 .soft-skills p > span { display: grid; gap: 5px; }
@@ -249,9 +262,13 @@ html.dark .hero-index span { border-color: var(--line); }
 html.dark .project-card { border-color: #3a3a35; }
 html.dark .project-card.featured { border-color: var(--yellow); }
 html.dark .skills-grid,
-html.dark .skill-tags span,
 html.dark .credentials { border-color: var(--copy); }
-html.dark .skill-tags span { color: var(--copy); }
+html.dark .profile-goal-card,
+html.dark .profile-goal-index { border-color: rgba(242, 240, 232, .38); }
+html.dark .skill-tag { color: var(--copy); border-color: rgba(242, 240, 232, .38); }
+html.dark .skill-tag:hover,
+html.dark .skill-tag:focus-visible,
+html.dark .skill-tag.active { color: var(--ink); border-color: var(--yellow); box-shadow: 3px 3px 0 rgba(242, 240, 232, .18); }
 html.dark .project-card .project-meta,
 html.dark .project-card .project-link { border-color: rgba(9,9,9,.2); }
 html.dark .credentials { box-shadow: 10px 10px 0 rgba(242,240,232,.35); }
@@ -336,6 +353,7 @@ html.dark .credentials { box-shadow: 10px 10px 0 rgba(242,240,232,.35); }
     .project-card, .project-card.featured { min-height: 0; margin-bottom: 22px; padding: 16px; }
     .project-card.featured h3 { font-size: clamp(44px, 14vw, 58px); }
     .project-card h3 { font-size: clamp(34px, 11vw, 48px); line-height: .95; }
+    .project-facts p { grid-template-columns: 92px 1fr; }
     .project-mark { height: clamp(130px, 42vw, 180px); }
     .project-poster { height: clamp(130px, 42vw, 170px); }
     .project-poster b { font-size: clamp(54px, 19vw, 78px); }
@@ -343,8 +361,13 @@ html.dark .credentials { box-shadow: 10px 10px 0 rgba(242,240,232,.35); }
     .tech-list li { font-size: 9px; }
     .project-link { min-height: 42px; align-items: center; }
     .skill-column { padding: 26px 18px; }
-    .skill-tags span { min-width: calc(50% - 8px); font-size: 17px; }
-    .skill-focus-grid { grid-template-columns: 1fr; }
+    .profile-goals { grid-template-columns: 1fr; }
+    .profile-goal-card { min-height: 0; }
+    .skill-tags { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .skill-tag { min-width: 0; max-width: none; min-height: 54px; font-size: 17px; }
+    .skill-tag:hover,
+    .skill-tag:focus-visible,
+    .skill-tag.active { min-height: 112px; min-width: 0; max-width: none; transform: translateY(-2px) rotate(0deg); box-shadow: 3px 3px 0 var(--ink); }
     .contact-inner .contact-note { margin-top: -22px; font-size: 12px; }
     .path-layout { grid-template-columns: minmax(0, 1fr); width: 100%; min-width: 0; }
     .timeline { max-width: 100%; width: 100%; min-width: 0; }
